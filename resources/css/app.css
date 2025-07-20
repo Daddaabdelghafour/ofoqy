@@ -3,3 +3,140 @@
 @tailwind utilities;
 
 
+@layer base {
+  /* Base styles */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-900 bg-white antialiased;
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-semibold text-gray-900;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
+  }
+
+  /* Paragraphs */
+  p {
+    @apply text-gray-600 leading-relaxed;
+  }
+
+  /* Links */
+  a {
+    @apply text-primary-600 hover:text-primary-700 transition-colors duration-200;
+  }
+
+  /* Focus styles */
+  *:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Button components */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 focus:ring-primary-500 shadow-sm hover:shadow-md;
+  }
+
+  .btn-outline {
+    @apply btn bg-transparent text-primary-600 border border-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+  }
+
+  /* Card components */
+  .card {
+    @apply bg-white rounded-xl shadow-soft border border-gray-100 overflow-hidden;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-medium transition-shadow duration-300;
+  }
+
+  /* Chat bubble styles (inspired by the design) */
+  .chat-bubble {
+    @apply bg-primary-600 text-white px-4 py-2 rounded-2xl text-sm font-medium shadow-sm;
+  }
+
+  .chat-bubble-secondary {
+    @apply bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl text-sm font-medium;
+  }
+
+  /* Container styles */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section spacing */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-700;
+  }
+
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-r from-gray-50 to-gray-100;
+  }
+
+  /* Animation utilities */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
