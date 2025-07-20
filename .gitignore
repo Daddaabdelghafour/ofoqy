@@ -1,0 +1,58 @@
+# Node
+/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vite
+
+# Laravel & PHP
+/vendor
+.phpunit.result.cache
+.phpactor.json
+.env
+.env.*
+Homestead.yaml
+Homestead.json
+.env.backup
+.env.production
+.env.testing
+.env.local
+.env.development
+/storage/*.key
+/storage/pail
+/.phpunit.cache
+/bootstrap/ssr
+
+# Laravel storage (except storage/app/public, if symlinked)
+/storage/*
+!/storage/app
+!/storage/app/public
+
+# Public folders
+/public/storage
+/public/hot
+/public/build
+
+# Jetstream / Breeze
+/.blade.cache
+
+# IDE & OS
+/.idea
+/.vscode
+/.nova
+/.fleet
+/.zed
+.DS_Store
+Thumbs.db
+
+# Auth (optional)
+/auth.json
+
+# Others
+*.log
+*.zip
+*.tar.gz
+*.tgz
+*.swp
+*.swo
