@@ -83,7 +83,7 @@
 
   /* Card components */
   .card {
-    @apply bg-white rounded-xl shadow-soft border border-gray-100 overflow-hidden;
+    @apply bg-white rounded-xl  border border-gray-100 overflow-hidden;
   }
 
   .card-hover {
