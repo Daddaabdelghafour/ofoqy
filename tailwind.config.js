@@ -19,6 +19,7 @@ module.exports = {
                     800: '#115e59',
                     900: '#134e4a',
                     950: '#042f2e',
+                    1000: '#1D7A85',
                 },
                 secondary: {
                     50: '#f8fafc',
@@ -106,6 +107,7 @@ module.exports = {
                     'Noto Sans',
                     'sans-serif',
                 ],
+                poppins: ['Poppins', 'sans-serif'],
                 heading: ['Poppins', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                 mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
             },
