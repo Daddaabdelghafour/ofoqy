@@ -1,3 +1,5 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import '../css/app.css';
 
 import { createInertiaApp } from '@inertiajs/react';
@@ -12,6 +14,15 @@ createInertiaApp({
     resolve: (name) => resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob('./pages/**/*.tsx')),
     setup({ el, App, props }) {
         const root = createRoot(el);
+
+        // Initialize AOS before rendering
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 120,
+            delay: 100,
+        });
 
         root.render(<App {...props} />);
     },

@@ -2,7 +2,12 @@ import Boutton from '@/components/Boutton';
 
 function Hero() {
     return (
-        <div className="container-custom section-padding flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-20">
+        <div
+            className="container-custom section-padding flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-20"
+            data-aos="fade-right"
+            data-aos-duration="800"
+            data-aos-delay="100"
+        >
             <div className="flex w-full flex-col gap-5 text-center lg:w-[500px] lg:gap-6 lg:text-left">
                 <div className="relative">
                     <img
@@ -17,7 +22,7 @@ function Hero() {
                 </div>
 
                 <p className="text-sm leading-relaxed text-gray-600 sm:text-base lg:text-lg">
-                    Découvre les formations et métiers qui te correspondent grâce à <span className="text-primary-1000 font-semibold">OFOQY</span>, la
+                    Découvre les formations et métiers qui te correspondent grâce à <span className="font-semibold text-primary-1000">OFOQY</span>, la
                     plateforme d'orientation intelligente pour les bacheliers marocains
                 </p>
 

@@ -51,6 +51,9 @@ function Services() {
                         return (
                             <div
                                 key={index}
+                                data-aos={index < 3 ? 'fade-right' : 'fade-left'}
+                                data-aos-duration="1000"
+                                data-aos-delay={index * 100}
                                 className="card rounded-xs group mx-auto flex h-auto min-h-[280px] w-full max-w-[320px] flex-col items-center p-6 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-medium sm:min-h-[320px] lg:min-h-[300px] lg:p-8"
                             >
                                 {/* Icon Container */}

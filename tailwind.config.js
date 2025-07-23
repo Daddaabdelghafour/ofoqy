@@ -163,5 +163,13 @@ module.exports = {
             },
         },
     },
+    safelist: [
+        'swiper-pagination',
+        'swiper-pagination-clickable',
+        'swiper-pagination-bullet',
+        'swiper-pagination-bullet-active',
+        'swiper-button-prev',
+        'swiper-button-next',
+    ],
     plugins: [require('tailwindcss-animate')],
 };
