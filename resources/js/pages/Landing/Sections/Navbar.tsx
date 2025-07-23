@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import logo from '../../../../../public/images/logo.png';
+import logo from '../../../../../public/images/Logo.png';
 import Boutton from '../../../components/Boutton';
 
 function NavBar(){
