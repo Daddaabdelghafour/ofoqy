@@ -13,7 +13,7 @@ function Orientation() {
                     <span className='font-medium text-[20px] md:text-[24px] leading-[30px] md:leading-[36px] text-[#4D4D4D] my-2 text-center'>Création du compte</span>
                     <p className='font-normal text-[14px] leading-[20px] text-[#717171] py-1 px-3 md:px-6 text-center mb-4'>Créez votre compte Ofoqy en un rien de temps ! Une inscription simple, rapide et intuitive en quelques clics seulement.</p>
                 </div>
-                <div className='p-4 md:p-3 flex flex-col items-center justify-center'>
+                <div className='p-4 md:p-3 flex flex-col items-center justify-center w-[100px]'>
                     <img src="/images/arrow.png" className='w-[60px] md:w-[94px] h-[60px] md:h-[94px]' />
                 </div>
                 <div className='flex flex-col items-center bg-white rounded-[4px] p-6 w-full max-w-xs md:max-w-sm'>
@@ -21,7 +21,7 @@ function Orientation() {
                     <span className='font-medium text-[20px] md:text-[24px] leading-[30px] md:leading-[36px] text-[#4D4D4D] my-2 text-center'>Test de personnalité</span>
                     <p className='font-normal text-[14px] leading-[20px] text-[#717171] py-1 px-3 md:px-3 text-center mb-4'>Passez un test conçu spécialement pour vous. Notre système analyse votre personnalité, vos intérêts et vos compétences pour vous aider à mieux vous connaître et à définir votre voie.</p>
                 </div>
-                <div className='p-4 md:p-3 flex flex-col items-center justify-center'>
+                <div className='p-4 md:p-3 flex flex-col items-center justify-center w-[100px]'>
                     <img src="/images/arrow.png" className='w-[60px] md:w-[94px] h-[60px] md:h-[94px]' />
                 </div>
                 <div className='flex flex-col items-center bg-white rounded-[4px] p-6 w-full max-w-xs'>

@@ -66,7 +66,7 @@ function Services() {
                                 </div>
 
                                 {/* Title */}
-                                <h4 className="mb-4 text-lg font-semibold leading-tight text-secondary-800 lg:text-xl">{service.title}</h4>
+                                <h4 className="mb-4 text-lg font-medium leading-tight text-[#4D4D4D] lg:text-xl">{service.title}</h4>
 
                                 {/* Description */}
                                 <p className="flex-grow text-sm leading-relaxed text-gray-600 lg:text-sm">{service.description}</p>
