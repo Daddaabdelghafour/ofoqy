@@ -19,7 +19,7 @@ module.exports = {
                     800: '#115e59',
                     900: '#134e4a',
                     950: '#042f2e',
-                    1000:'#2d868c',
+                    1000:'#1D7A85',
                 },
                 secondary: {
                     50: '#f8fafc',
@@ -107,6 +107,7 @@ module.exports = {
                     'Noto Sans',
                     'sans-serif',
                 ],
+                poppins:['Poppins', 'sans-serif'],
                 heading: ['Poppins', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                 mono: ['JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
             },
@@ -144,7 +145,8 @@ module.exports = {
             animation: {
                 'fade-in': 'fadeIn 0.5s ease-in-out',
                 'slide-up': 'slideUp 0.3s ease-out',
-                'bounce-gentle': 'bounceGentle 2s infinite',
+                'slide-in-right': 'slideInRight 0.5s ease-out',
+                'slide-in-left': 'slideInLeft 0.5s ease-out',
             },
             keyframes: {
                 fadeIn: {
@@ -155,12 +157,24 @@ module.exports = {
                     '0%': { transform: 'translateY(10px)', opacity: '0' },
                     '100%': { transform: 'translateY(0)', opacity: '1' },
                 },
-                bounceGentle: {
-                    '0%, 100%': { transform: 'translateY(0)' },
-                    '50%': { transform: 'translateY(-5px)' },
+                slideInRight: {
+                    '0%': { transform: 'translateX(50px)', opacity: '0' },
+                    '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideInLeft: {
+                    '0%': { transform: 'translateX(-50px)', opacity: '0' },
+                    '100%': { transform: 'translateX(0)', opacity: '1' },
                 },
             },
         },
     },
+    safelist: [
+    'swiper-pagination',
+    'swiper-pagination-clickable',
+    'swiper-pagination-bullet',
+    'swiper-pagination-bullet-active',
+    'swiper-button-prev',
+    'swiper-button-next',
+  ],
     plugins: [require('tailwindcss-animate')],
 };

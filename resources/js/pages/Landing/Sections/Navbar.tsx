@@ -1,23 +1,21 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import logo from '../../../../../public/images/logo.png';
+import Boutton from '../../../components/Boutton';
 
 function NavBar(){
     return (
             <div className="container-custom flex flex-col md:flex-row justify-between items-center py-8 px-2 md:px-2 md:py-10 lg:py-10 gap-4 md:gap-0">
-            <div>logo</div>
-
-            <ul className="container-custom flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8">
+                <img className='w-[70px] h-full' src={logo}/>
+            <ul className=" font-poppins font-regular container-custom flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 font-normal text-[16px] ">
                 <a href="#acceuil">Acceuil</a>
                 <a href="#services">Services</a>
-                <a href="#about">A propos de nous</a>
-                <a href="#temoignage">Temoignage</a>
+                <a href="#about">à propos de nous</a>
+                <a href="#temoignage">Témoignage</a>
                 <a href="#faq">FAQ</a>
             </ul>
 
-            <button className="btn btn-primary px-6 flex justify-center mt-4 md:mt-0 hover:bg-white hover:text-primary-1000 border-primary-600">
-                Commencer
-                <ArrowRight className="pt-1 pb-0.5 ml-2" />
-            </button>
+            <Boutton />
             </div>
 
     );
