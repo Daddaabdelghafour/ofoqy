@@ -4,8 +4,9 @@ import Hero from './Sections/Hero';
 import Services from "./Sections/Services";
 import Orientation from "./Sections/Orientation"
 import WhyOfoqy from "./Sections/WhyOfoqy";
-import Packs from "./Sections/Packs"
+import Packs from "./Sections/Packs";
 import Testimonials from "./Sections/Testimonials";
+import AboutUs from "./Sections/AboutUs";
 import Footer from "./Sections/Footer";
 
 
@@ -15,6 +16,7 @@ function Index(){
             <Navbar />
             <Hero />
             <Services />
+            <AboutUs />
             <Orientation />
             <WhyOfoqy />
             <Packs />

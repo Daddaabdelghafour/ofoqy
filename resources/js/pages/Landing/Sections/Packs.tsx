@@ -43,7 +43,7 @@ function Packs() {
         <div className="w-full bg-[#1D7A850A]">
             <div className="container-custom section-padding">
                 <h2
-                    className="text-gradient mb-2 text-center text-2xl font-medium sm:text-3xl lg:text-4xl"
+                    className="text-gradient mb-2 text-center text-2xl font-semibold sm:text-3xl lg:text-4xl"
                     data-aos="fade-up"
                     data-aos-duration="800"
                 >

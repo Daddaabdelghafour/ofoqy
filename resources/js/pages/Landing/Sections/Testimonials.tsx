@@ -30,7 +30,8 @@ function Testimonials() {
         },
     ];
     return (
-        <div className='section-padding container-custom bg-[#1D7A850A] flex flex-col items-center overflow-hidden max-w-screen'>
+        <div className=' py-20 w-full'>
+        <div className='container-custom flex flex-col items-center overflow-hidden max-w-screen'>
             <span className='text-gradient font-semibold text-[32px] md:text-[40px] leading-[38px] md:leading-[44px] text-center mb-8'>
                 Ils l'ont fait, pourquoi pas vous ?
             </span>
@@ -41,7 +42,7 @@ function Testimonials() {
                 breakpoints={{
                     640: { slidesPerView: 1 },
                     768: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 }
+                    900: { slidesPerView: 3 }
                 }}
                 centeredSlides={true}
                 navigation
@@ -50,7 +51,7 @@ function Testimonials() {
                 className="w-full"
             >
                 {TestimonialsData.map((testimonial, index) => (
-                    <SwiperSlide key={index} className="p-4 w-full my-8">
+                    <SwiperSlide key={index} className="p-4 w-full my-9">
                         <div className="bg-white rounded-lg shadow-md p-8">
                             <div className='flex justify-center'>
                                 <img src={"/images/testimony" + (index + 1) + ".png"} className='w-[50px] h-[50px] mr-4' />
@@ -64,6 +65,7 @@ function Testimonials() {
                     </SwiperSlide>
                 ))}
             </Swiper>
+        </div>
         </div>
     );
 }
