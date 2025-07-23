@@ -3,7 +3,7 @@ import Boutton from '@/components/Boutton';
 function Hero() {
     return (
         <div
-            className="container-custom section-padding flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-20"
+            className="container-custom py-10 flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:gap-20"
             data-aos="fade-right"
             data-aos-duration="800"
             data-aos-delay="100"
@@ -39,7 +39,7 @@ function Hero() {
                     <img
                         src="/images/hero.png"
                         alt="OFOQY - Plateforme d'orientation pour bacheliers marocains"
-                        className="h-auto w-full max-w-md rounded-lg shadow-lg sm:max-w-lg lg:max-w-xl"
+                        className="h-auto w-full max-w-md sm:max-w-lg lg:max-w-xl"
                     />
                 </div>
             </div>
