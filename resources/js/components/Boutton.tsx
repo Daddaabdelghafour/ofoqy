@@ -2,10 +2,10 @@ import { ArrowRight } from 'lucide-react';
 
 function Boutton() {
     return (
-        <button className="btn btn-primary hover:text-primary-1000 mt-4 flex justify-center border-primary-600 px-6 text-[13.97px] font-normal leading-[19.95px] tracking-[0.8px] hover:bg-white md:mt-0">
+        <button className="btn btn-primary px-6 flex justify-center mt-4 md:mt-0 hover:bg-white hover:text-primary-1000 border-primary-600 font-normal text-[13.97px] leading-[19.95px] tracking-[0.8px]">
             Commencer
-            <ArrowRight className="ml-1 pb-1 pt-1" />
-        </button>
+            <ArrowRight className="pt-1 pb-1 ml-1" />
+         </button>
     );
-}
+};
 export default Boutton;

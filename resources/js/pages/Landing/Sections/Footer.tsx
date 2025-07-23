@@ -23,7 +23,7 @@ function Footer() {
                     {/* Company Info Section */}
                     <div className="flex w-full flex-col lg:w-1/3">
                         <div className="mb-6">
-                            <img src="/images/logo.png" alt="OFOQY Logo" className="h-auto max-h-12 w-auto" />
+                            <img src="/images/logo2.png" alt="OFOQY Logo" className="h-auto max-h-12 w-auto" />
                         </div>
                         <div className="mb-6">
                             <p className="text-sm font-normal leading-relaxed text-white/90 sm:text-base">
