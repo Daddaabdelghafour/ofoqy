@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+
 Route::get('/', function () {
     return Inertia::render('Landing/Index');
 });
@@ -15,9 +16,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 });
-Route::get('/login', function () {
-    return Inertia::render('Auth/Login');
-});
+
+
 
 require __DIR__ . '/settings.php';
-require __DIR__ . '/auth.php';
+#require __DIR__ . '/auth.php';

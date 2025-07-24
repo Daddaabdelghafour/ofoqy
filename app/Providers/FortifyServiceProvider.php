@@ -49,7 +49,7 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::registerView(function () {
             Log::info('📄 Fortify serving register view');
-            return Inertia::render('Auth/Register');
+            return Inertia::render('auth/register');
         });
 
         Fortify::requestPasswordResetLinkView(function () {
