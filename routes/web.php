@@ -15,6 +15,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 });
+Route::get('/login', function () {
+    return Inertia::render('Auth/Login');
+});
 
 require __DIR__ . '/settings.php';
 require __DIR__ . '/auth.php';
