@@ -32,33 +32,6 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Log::info('🚀 FortifyServiceProvider booting...');
-
-        Fortify::createUsersUsing(CreateNewStudent::class);
-        Log::info('✅ Fortify createUsersUsing set to CreateNewStudent');
-
-        Fortify::updateUserProfileInformationUsing(UpdateStudentProfileInformation::class);
-        Fortify::updateUserPasswordsUsing(UpdateStudentPassword::class);
-        Fortify::resetUserPasswordsUsing(ResetStudentPassword::class);
-        Fortify::redirectUserForTwoFactorAuthenticationUsing(RedirectIfTwoFactorAuthenticatable::class);
-
-        Fortify::loginView(function () {
-            Log::info('📄 Fortify serving login view');
-            return Inertia::render('Auth/Login');
-        });
-
-        Fortify::registerView(function () {
-            Log::info('📄 Fortify serving register view');
-            return Inertia::render('auth/register');
-        });
-
-        Fortify::requestPasswordResetLinkView(function () {
-            return Inertia::render('Auth/ForgotPassword');
-        });
-
-        Fortify::resetPasswordView(function ($request) {
-            return Inertia::render('Auth/ResetPassword', ['request' => $request]);
-        });
 
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
@@ -69,6 +42,5 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
 
-        Log::info('✅ FortifyServiceProvider boot completed');
     }
 }

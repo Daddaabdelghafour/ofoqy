@@ -3,7 +3,6 @@
 use Laravel\Fortify\Features;
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Fortify Guard
@@ -156,4 +155,15 @@ return [
         ]),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Fortify Routes
+    |--------------------------------------------------------------------------
+    |
+    | Here you may disable Fortify's automatic routes registration. This is
+    | useful if you want to define your own routes for Fortify's features.
+    |
+    */
+
+    'routes' => false,
 ];
