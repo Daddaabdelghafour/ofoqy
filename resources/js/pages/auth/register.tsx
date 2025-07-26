@@ -2,231 +2,118 @@ import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
-import InputError from '@/components/input-error';
-import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import AuthLayout from '@/layouts/auth-layout';
 
-type RegisterForm = {
-    nom_complet: string;
-    ville: string;
-    age: string;
-    genre: string;
-    email: string;
-    password: string;
-    password_confirmation: string;
-    niveau_etude: string;
-    filiere: string;
-    langue_bac: string;
-    moyenne_general_bac: string;
-};
+import { ArrowLeft } from 'lucide-react';
+import { useState } from 'react';
+
+
+
+import Steps from '@/components/Steps';
 
 export default function Register() {
-    const { data, setData, post, processing, errors, reset } = useForm<RegisterForm>({
-        nom_complet: '',
-        ville: '',
-        age: '',
-        genre: '',
-        email: '',
-        password: '',
-        password_confirmation: '',
-        niveau_etude: '',
-        filiere: '',
-        langue_bac: '',
-        moyenne_general_bac: '',
-    });
+  const { data, setData, post, processing, errors, reset } = useForm({
+    nom_complet: '',
+    ville: '',
+    age: '',
+    genre: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+    niveau_etude: '',
+    filiere: '',
+    langue_bac: '',
+    moyenne_general_bac: '',
+  });
 
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-        post('/register', {
-            onFinish: () => reset('password', 'password_confirmation'),
-        });
-    };
+  const [currentStep, setCurrentStep] = useState(1);
+
+  function nextStep() {
+    setCurrentStep((prev) => Math.min(prev + 1, 3));
+  }
+
+  function prevStep() {
+    setCurrentStep((prev) => Math.max(prev - 1, 1));
+  }
+
+  function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    // You can choose to only submit on last step or handle multi-step validation
+    if (currentStep < 3) {
+      nextStep();
+    } else {
+      post('/register', {
+        onFinish: () => reset('password', 'password_confirmation'),
+      });
+    }
+  }
 
     return (
-        <AuthLayout title="Créer un compte étudiant" description="Remplissez vos informations pour créer votre compte">
-            <Head title="Register" />
-
-            <form className="flex flex-col gap-6" onSubmit={submit}>
-                <div className="grid gap-6">
-                    <div className="grid gap-2">
-                        <Label htmlFor="nom_complet">Nom Complet</Label>
-                        <Input
-                            id="nom_complet"
-                            type="text"
-                            required
-                            autoFocus
-                            value={data.nom_complet}
-                            onChange={(e) => setData('nom_complet', e.target.value)}
-                            disabled={processing}
-                            placeholder="Votre nom complet"
-                        />
-                        <InputError message={errors.nom_complet} />
-                    </div>
-
-                    <div className="grid gap-2">
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                            id="email"
-                            type="email"
-                            required
-                            value={data.email}
-                            onChange={(e) => setData('email', e.target.value)}
-                            disabled={processing}
-                            placeholder="email@example.com"
-                        />
-                        <InputError message={errors.email} />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="grid gap-2">
-                            <Label htmlFor="ville">Ville</Label>
-                            <Input
-                                id="ville"
-                                type="text"
-                                required
-                                value={data.ville}
-                                onChange={(e) => setData('ville', e.target.value)}
-                                disabled={processing}
-                                placeholder="Votre ville"
-                            />
-                            <InputError message={errors.ville} />
+    <div className='w-full min-h-screen p-10 flex flex-col'>
+        <div className=' flex justify-between  '>
+            < ArrowLeft className='text-black w-[20px] h-[20px] border-2.25'/>
+            <div className='flex flex-col items-center '>
+                <span className='font-medium text-[40px] leading-[100px] w-[342px] h-[50px] '>Créer un compte</span>
+                <span className='font-normal text-[18px] leading-[100px] text-[#666666]'>Vous avez déjà un compte ? <a href="" className=' text-primary-1000' >Se connecter</a> </span>
+            </div>
+            <img src="/images/registerlogo.png" className='w-[30px] h-[50px]'></img>
+        </div>
+        <div className='flex flex-col items-center'>
+            <div className='relative'>
+                <div className="flex items-center justify-between w-[1000px]">
+            
+                    {/* Step 1 */}
+                    <div className="flex flex-col items-center flex-1 relative mt-6">
+                        <div className='w-8 h-8 flex items-center justify-center  text-white font-semibold bg-primary-1000'>
+                        1
                         </div>
+                        <p className="text-[14px] font-light text-[#191919] mt-2 w-auto">Ajouter Email et mot de passe</p>
+                    </div>
 
-                        <div className="grid gap-2">
-                            <Label htmlFor="age">Âge</Label>
-                            <Input
-                                id="age"
-                                type="number"
-                                required
-                                min="16"
-                                max="100"
-                                value={data.age}
-                                onChange={(e) => setData('age', e.target.value)}
-                                disabled={processing}
-                                placeholder="18"
-                            />
-                            <InputError message={errors.age} />
+                    {/* Line */}
+                    <div className="h-0.5 bg-gray-300 flex-1 relative z-20 -mx-20 "></div>
+
+                    {/* Step 2 */}
+                    <div className="flex flex-col items-center flex-1 relative mt-6">
+                        <div className=' w-8 h-8 flex items-center justify-center '>
+                        2
                         </div>
+                        <p className="text-[14px] font-light text-[#191919] mt-2 w-auto">Ajouter les infos personnel</p>
                     </div>
 
-                    <div className="grid gap-2">
-                        <Label htmlFor="genre">Genre</Label>
-                        <Select value={data.genre} onValueChange={(value) => setData('genre', value)} disabled={processing}>
-                            <SelectTrigger>
-                                <SelectValue placeholder="Sélectionnez votre genre" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="masculin">Masculin</SelectItem>
-                                <SelectItem value="feminin">Féminin</SelectItem>
-                                <SelectItem value="autre">Autre</SelectItem>
-                            </SelectContent>
-                        </Select>
-                        <InputError message={errors.genre} />
-                    </div>
+                    {/* Line */}
+                    <div className="h-0.5 bg-gray-300 flex-1 relative z-20 -mx-20 "></div>
 
-                    <div className="grid gap-2">
-                        <Label htmlFor="niveau_etude">Niveau d'Études</Label>
-                        <Select value={data.niveau_etude} onValueChange={(value) => setData('niveau_etude', value)} disabled={processing}>
-                            <SelectTrigger>
-                                <SelectValue placeholder="Sélectionnez votre niveau" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="baccalaureat">Baccalauréat</SelectItem>
-                            </SelectContent>
-                        </Select>
-                        <InputError message={errors.niveau_etude} />
-                    </div>
-
-                    <div className="grid gap-2">
-                        <Label htmlFor="filiere">Filière</Label>
-                        <Input
-                            id="filiere"
-                            type="text"
-                            required
-                            value={data.filiere}
-                            onChange={(e) => setData('filiere', e.target.value)}
-                            disabled={processing}
-                            placeholder="Sciences, Lettres, Économie, etc."
-                        />
-                        <InputError message={errors.filiere} />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="grid gap-2">
-                            <Label htmlFor="langue_bac">Langue du BAC</Label>
-                            <Select value={data.langue_bac} onValueChange={(value) => setData('langue_bac', value)} disabled={processing}>
-                                <SelectTrigger>
-                                    <SelectValue placeholder="Langue" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    <SelectItem value="francais">Français</SelectItem>
-                                    <SelectItem value="arabe">Arabe</SelectItem>
-                                    <SelectItem value="anglais">Anglais</SelectItem>
-                                </SelectContent>
-                            </Select>
-                            <InputError message={errors.langue_bac} />
+                    {/* Step 3 */}
+                    <div className="flex flex-col items-center flex-1 relative mt-6">
+                    <div className=' w-8 h-8 flex items-center justify-center'>
+                        3
                         </div>
-
-                        <div className="grid gap-2">
-                            <Label htmlFor="moyenne_general_bac">Moyenne BAC</Label>
-                            <Input
-                                id="moyenne_general_bac"
-                                type="number"
-                                required
-                                min="0"
-                                max="20"
-                                step="0.01"
-                                value={data.moyenne_general_bac}
-                                onChange={(e) => setData('moyenne_general_bac', e.target.value)}
-                                disabled={processing}
-                                placeholder="15.50"
-                            />
-                            <InputError message={errors.moyenne_general_bac} />
-                        </div>
+                        <p className="text-[14px] font-light text-[#191919] mt-2 w-auto">Ajouter les infos éducatif</p>
                     </div>
+                </div>  
+            </div>    
+        </div>
 
-                    <div className="grid gap-2">
-                        <Label htmlFor="password">Mot de passe</Label>
-                        <Input
-                            id="password"
-                            type="password"
-                            required
-                            value={data.password}
-                            onChange={(e) => setData('password', e.target.value)}
-                            disabled={processing}
-                            placeholder="Votre mot de passe"
-                        />
-                        <InputError message={errors.password} />
-                    </div>
-
-                    <div className="grid gap-2">
-                        <Label htmlFor="password_confirmation">Confirmer le mot de passe</Label>
-                        <Input
-                            id="password_confirmation"
-                            type="password"
-                            required
-                            value={data.password_confirmation}
-                            onChange={(e) => setData('password_confirmation', e.target.value)}
-                            disabled={processing}
-                            placeholder="Confirmez votre mot de passe"
-                        />
-                        <InputError message={errors.password_confirmation} />
-                    </div>
-
-                    <Button type="submit" className="w-full" disabled={processing}>
-                        {processing && <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />}
-                        Créer un compte
-                    </Button>
-                </div>
-
-                <div className="text-muted-foreground text-center text-sm">
-                    Vous avez déjà un compte ? <TextLink href={route('login')}>Se connecter</TextLink>
-                </div>
-            </form>
-        </AuthLayout>
+    
+    <form onSubmit={submit} >
+    <Steps 
+    currentStep={currentStep}
+        data={data}
+        setData={setData}
+        processing={processing}
+        errors={errors}
+        submit={submit}
+   />
+    <button
+          type="submit"
+          
+          className="px-4 py-2 bg-primary-1000 text-white rounded"
+          disabled={processing}
+        >
+          {currentStep === 3 ? 'Terminer' : 'Suivant'}
+        </button>
+        </form>
+   </div>
+        
     );
 }
