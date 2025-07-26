@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Actions\Fortify\CreateNewStudent;
 use App\Actions\Fortify\AuthenticateStudent;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 
 Route::get('/', function () {
     return Inertia::render('Landing/Index');
@@ -50,6 +52,26 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('dashboard'); // Capital D for consistency
     })->name('dashboard');
+});
+
+// 🔐 Routes de réinitialisation de mot de passe
+Route::middleware('guest')->group(function () {
+
+    // Page "Mot de passe oublié"
+    Route::get('/forgot-password', [ForgotPasswordController::class, 'create'])
+        ->name('password.request');
+
+    // Traiter l'envoi du lien de réinitialisation
+    Route::post('/forgot-password', [ForgotPasswordController::class, 'store'])
+        ->name('password.email');
+
+    // Page de réinitialisation avec token
+    Route::get('/reset-password/{token}', [ResetPasswordController::class, 'create'])
+        ->name('password.reset');
+
+    // Traiter la réinitialisation du mot de passe
+    Route::post('/reset-password', [ResetPasswordController::class, 'store'])
+        ->name('password.store');
 });
 
 require __DIR__ . '/settings.php';
