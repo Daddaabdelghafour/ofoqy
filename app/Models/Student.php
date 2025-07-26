@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\StudentPasswordResetNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,4 +43,19 @@ class Student extends Authenticatable
     {
         return $this->nom_complet;
     }
+
+    public function getEmailForPasswordReset(): string
+    {
+        return $this->email;
+    }
+
+    /**
+     * Send a password reset notification to the user.
+     */
+    public function sendPasswordResetNotification($token): void
+    {
+        $this->notify(new StudentPasswordResetNotification($token));
+    }
+
+
 }
