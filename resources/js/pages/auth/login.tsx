@@ -37,53 +37,54 @@ export default function Login({ status, canResetPassword }: LoginProps) {
         <div className="flex min-h-screen flex-col lg:flex-row">
             <Head title="Log in" />
 
-            {/* Right Side - Hidden on mobile, full width on tablet, half on desktop */}
+            {/* left Side - Hidden on mobile, full width on tablet, half on desktop */}
             <div
-                className="relative hidden flex-col items-center justify-center bg-[#1D7A85] p-4 md:flex md:flex-1 md:p-6 lg:p-8"
+                className="relative hidden flex-col flex-1 items-center justify-center bg-[#1D7A85] md:flex md:p-6 lg:p-8"
                 data-aos="fade-left"
                 data-aos-duration="1000"
             >
-                {/* SpaceMan logo - Responsive positioning */}
-                <div className="absolute left-4 top-4 z-40 md:left-8 md:top-8 lg:left-[50px] lg:top-[50px]" data-aos="fade-down" data-aos-delay="200">
+                {/*logo - Responsive positioning */}
+                <div className="absolute left-4 top-4 z-40 md:left-8 md:top-8 lg:left-[50px] lg:top-[50px] w-[159px] h-[123px]" data-aos="fade-down" data-aos-delay="200">
                     <img src="/images/login-logo.png" alt="" className="h-8 w-auto md:h-10 lg:h-auto" />
                 </div>
 
                 {/* SpaceMan container - Responsive sizing */}
                 <div
-                    className="relative flex h-[300px] w-[300px] flex-row items-center justify-center md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px]"
+                    className="relative flex h-[278px] w-[300px] flex-row items-center justify-center md:h-[400px] md:w-[400px] lg:h-[500px] lg:w-[500px] mt-[250px]"
                     data-aos="zoom-in"
                     data-aos-delay="400"
                 >
-                    <div>
+                    <div className=''>
                         <div
-                            className="absolute left-[22%] top-[10%] z-10 h-[200px] w-[200px] rounded-full bg-[#114A51] md:h-[250px] md:w-[250px] lg:h-[300px] lg:w-[300px]"
+                            className="absolute left-[22%] top-[10%] z-10 rounded-full bg-[#114A51] md:h-[250px] md:w-[250px] lg:h-[300px] lg:w-[300px]"
                             data-aos="fade-in"
                             data-aos-delay="600"
                         ></div>
-                        <img src="/images/SpaceMan.png" alt="" className="relative z-20 h-auto w-full" data-aos="bounce-in" data-aos-delay="800" />
+                        <img src="/images/SpaceMan.png" alt="" className="relative z-20 h-[500px] w-[500px]" data-aos="bounce-in" data-aos-delay="800" />
                     </div>
                 </div>
 
                 {/* Text content - Responsive sizing */}
                 <div
-                    className="flex w-full max-w-[400px] flex-col gap-2 px-4 md:max-w-[500px] lg:max-w-[600px]"
+                    className="flex w-full max-w-[400px] -mt-4 flex-col gap-4 pb-4 md:max-w-[500px] lg:max-w-[600px]"
                     data-aos="fade-up"
                     data-aos-delay="1000"
                 >
-                    <h3 className="text-center text-xl font-semibold text-white md:text-2xl lg:text-3xl">Heureux de te revoir !</h3>
-                    <p className="text-center text-sm font-normal leading-relaxed text-white md:text-base">
-                        Heureux de te revoir ! Connecte-toi pour continuer ton exploration et découvrir les parcours qui te ressemblent.
+                    <h3 className="text-center font-semibold text-white md:text-2xl lg:text-3xl text-[30px] leading-[200%]">Heureux de te revoir !</h3>
+                    <p className="text-center font-light text-white  text-[17.82px] leading[200%]">
+                        Connecte-toi pour continuer ton exploration et découvrir les parcours qui te ressemblent.
                     </p>
                 </div>
+                <div className=' w-full h-[150px]'></div>
             </div>
 
-            {/* Left Side - Full width on mobile, half on desktop */}
-            <div className="flex flex-1 items-center justify-center p-4 md:p-6 lg:p-8" data-aos="fade-right" data-aos-duration="1000">
-                <div className="w-full max-w-md md:max-w-lg lg:max-w-[60%]">
+            {/* right  Side - Full width on mobile, half on desktop */}
+            <div className=" flex flex-col flex-1 items-center justify-center md:p-6 lg:p-8 " data-aos="fade-right" data-aos-duration="1000">
+                <div className="w-full max-w-md md:max-w-lg">
                     {/* Header - Responsive text sizes */}
                     <div className="mb-8 text-center md:mb-10 md:text-left lg:mb-[50px]" data-aos="fade-down" data-aos-delay="200">
-                        <h2 className="text-2xl font-semibold md:text-3xl lg:text-4xl">Se Connecter</h2>
-                        <p className="mt-2 text-center text-sm text-gray-600 md:text-left md:text-base">
+                        <h2 className="font-medium md:text-3xl lg:text-[40px]">Se Connecter</h2>
+                        <p className="mt-4 text-center text-sm text-gray-600 md:text-left md:text-base">
                             Connectez-vous pour accéder à votre compte <span className="text-primary-1000">OFOQY</span>
                         </p>
                     </div>
@@ -92,7 +93,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                         <div className="grid gap-4 md:gap-6">
                             {/* Email Field */}
                             <div className="grid gap-2" data-aos="fade-up" data-aos-delay="400">
-                                <Label htmlFor="email" className="text-sm md:text-lg">
+                                <Label htmlFor="email" className="text-sm md:text-lg font-medium text-[16px] text-[#5B5B5B]">
                                     Email
                                 </Label>
                                 <Input
@@ -105,7 +106,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                     value={data.email}
                                     onChange={(e) => setData('email', e.target.value)}
                                     placeholder="Ajouter votre adresse email"
-                                    className="rounded-sm border border-gray-500 p-3 text-sm md:p-4 md:text-base lg:p-6"
+                                    className="rounded-sm border border-[#5b5b5b91] p-3 text-sm md:p-4 md:text-base lg:p-6"
                                 />
                                 <InputError message={errors.email} />
                             </div>
@@ -113,7 +114,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                             {/* Password Field */}
                             <div className="grid gap-2" data-aos="fade-up" data-aos-delay="500">
                                 <div className="flex items-center">
-                                    <Label htmlFor="password" className="text-sm md:text-lg">
+                                    <Label htmlFor="password" className="text-sm md:text-lg font-medium text-[16px] text-[#5B5B5B]">
                                         Mot De Passe
                                     </Label>
                                     {canResetPassword && (
@@ -131,7 +132,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                     value={data.password}
                                     onChange={(e) => setData('password', e.target.value)}
                                     placeholder="Ajouter votre mot de passe"
-                                    className="rounded-sm border border-gray-500 p-3 text-sm md:p-4 md:text-base lg:p-6"
+                                    className="rounded-sm border border-[#5B5B5B91] p-3 text-sm md:p-4 md:text-base lg:p-6"
                                 />
                                 <InputError message={errors.password} />
                             </div>
@@ -151,7 +152,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                         tabIndex={3}
                                         className="mr-2 rounded-sm border border-gray-500"
                                     />
-                                    <Label htmlFor="remember" className="text-sm md:text-base">
+                                    <Label htmlFor="remember" className="text-sm md:text-base font-light text-[16px] text-[#5B5B5B]">
                                         Se souvenir de moi
                                     </Label>
                                 </div>
@@ -187,7 +188,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                     {/* Google Login Button */}
                                     <button
                                         type="button"
-                                        className="flex flex-1 items-center justify-center gap-2 rounded-sm border border-b-4 border-primary-1000 bg-white px-3 py-3 text-gray-700 transition-all duration-200 hover:scale-105 hover:border-gray-400 hover:bg-gray-50 active:scale-95 md:px-4 md:py-3"
+                                        className="flex flex-1 items-center justify-center gap-2 rounded-sm border border-b-4 border-primary-1000 bg-white px-3 py-3 transition-all duration-200 hover:scale-105 active:scale-95 md:px-4 md:py-3"
                                         onClick={() => {
                                             window.location.href = route('auth.google');
                                         }}
@@ -210,13 +211,13 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
                                             />
                                         </svg>
-                                        <span className="text-sm font-medium text-primary-1000 md:text-base"> Avec Google</span>
+                                        <span className="text-sm font-normal text-[14px] text-primary-1000 md:text-base"> Avec Google</span>
                                     </button>
 
                                     {/* Instagram Login Button */}
                                     <button
                                         type="button"
-                                        className="flex flex-1 items-center justify-center gap-2 rounded-sm border border-b-4 border-gray-300 border-primary-1000 bg-white px-3 py-3 text-gray-700 transition-all duration-200 hover:scale-105 hover:border-gray-400 hover:bg-gray-50 active:scale-95 md:px-4 md:py-3"
+                                        className="flex flex-1 items-center justify-center gap-2 rounded-sm border border-b-4  border-primary-1000 bg-white px-3 py-3 transition-all duration-200 hover:scale-105 active:scale-95 md:px-4 md:py-3"
                                         onClick={() => {
                                             window.location.href = route('auth.instagram');
                                         }}
@@ -236,23 +237,23 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
                                             />
                                         </svg>
-                                        <span className="text-sm font-medium text-primary-1000 md:text-base">Avec Instagram</span>
+                                        <span className="text-sm font-normal text-[14px] text-primary-1000 md:text-base">Avec Instagram</span>
                                     </button>
                                 </div>
                             </div>
                         </div>
 
                         {/* Bottom text and button */}
-                        <div className="text-muted-foreground mt-4 text-center text-xs md:text-sm" data-aos="fade-up" data-aos-delay="1000">
+                        <div className="text-muted-foreground mt-4 text-center text-xs md:text-sm text-[14px] text-[#828282] font-light" data-aos="fade-up" data-aos-delay="1000">
                             Vous n'avez pas encore de compte ?
                         </div>
                         <TextLink
                             href={route('register')}
-                            className="btn btn-outline flex w-full items-center justify-center gap-2 rounded-sm border border-primary-600 bg-white px-4 py-3 text-primary-600 transition-all duration-200 hover:scale-105 hover:bg-primary-600 hover:text-white active:scale-95 md:px-6 md:py-4 lg:px-4 lg:py-2.5"
+                            className="rounded-sm border border-b-4  border-primary-1000 bg-white px-3 py-3 transition-all duration-200 hover:scale-105 active:scale-95 md:px-4 md:py-3 no-underline text-center"
                             data-aos="fade-up"
                             data-aos-delay="1100"
                         >
-                            <span className="text-sm font-medium md:text-base lg:text-lg">S'identifier</span>
+                            <span className="text-sm font-medium text-primary-1000 md:text-base lg:text-lg ">S'identifier</span>
                         </TextLink>
                     </form>
 

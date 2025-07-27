@@ -173,11 +173,10 @@ export default function StepForm({
             type="text"
             placeholder='Baccalaureat'
             className='h-[54px] border-[1px] border-[#19191962] rounded-[3px] p-4 text-[14px] mb-3'
-            value={data.niveau_etude}
+            value="Baccalaureat"
             onChange={e => setData('niveau_etude', e.target.value)}
             disabled={processing}
           />
-          <InputError message={errors.niveau_etude} />
         </div>
         <div className="grid gap-2">
           <label className="font-medium text-[16px] leading-100 text-[#5B5B5B]">
@@ -203,17 +202,15 @@ export default function StepForm({
           <select
             className="h-[54px] border-[1px] border-[#19191962] rounded-[3px] p-4 text-[14px] mb-3"
             value={data.langue_bac}
-            onChange={(e) => setData('filiere', e.target.value)}
+            onChange={(e) => setData('langue_bac', e.target.value)}
             disabled={processing}
           >
             <option value="">-- Sélectionnez votre langue de bac --</option>
-            <option value="Arabe">Arabe</option>
-            <option value="Francais">Francais</option>
-            <option value="Anglais">Anglais</option>
+            <option value="arabe">arabe</option>
+            <option value="francais">francais</option>
+            <option value="anglais">anglais</option>
           </select>
-          {errors.langue_bac && (
-            <p className="text-red-600">{errors.langue_bac}</p>
-          )}
+          <InputError message={errors.langue_bac} />
         </div>
         <div className="grid gap-2">
           <label className='font-medium text-[16px] leading-100 text-[#5B5B5B]'>Moyenne générale Bac<span className='text-red-600'>*</span></label>

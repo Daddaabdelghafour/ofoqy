@@ -28,6 +28,7 @@ export default function Register() {
     function submit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const newErrors: { [key: string]: string } = {};
+        setData('niveau_etude', 'baccalaureat');
 
         if (currentStep === 1) {
             let isValid = true;
@@ -87,10 +88,6 @@ export default function Register() {
             }
         } else if (currentStep === 3) {
             let isValid = true;
-            if (!data.niveau_etude) {
-                newErrors.niveau_etude = 'Niveau requis.';
-                isValid = false;
-            }
             if (!data.filiere) {
                 newErrors.filiere = 'Filière requise.';
                 isValid = false;
