@@ -82,7 +82,7 @@ class Universite extends Model
     }
 
 
-    public function getSeuilForBacType(string $typeBac): ?float
+    public function getSeuilForBacType(string $typeBac): ?float 
     {
         return $this->seuils_admission[$typeBac] ?? null;
     }
