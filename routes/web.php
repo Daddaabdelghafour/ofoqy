@@ -74,5 +74,15 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
+Route::get('/MBTI', function () {
+        return Inertia::render('MBTI/Acceuil');
+    })->name('MBTI/acceuil');
+    Route::get('/questions', function () {
+        return Inertia::render('MBTI/Questions');
+    })->name('MBTI/acceuil');
+
+// MBTI API route - requires authentication
+Route::post('/api/mbti-result', [MBTIController::class, 'store'])->middleware('auth')->name('mbti.store');    
+
 require __DIR__ . '/settings.php';
 #require __DIR__ . '/auth.php';
