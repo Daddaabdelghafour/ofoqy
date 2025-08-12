@@ -18,26 +18,7 @@ class CreateNewStudent implements CreatesNewUsers
      */
     public function create(array $input): Student
     {
-        Log::info('🚀 CreateNewStudent: Action initiated', [
-            'input_keys' => array_keys($input),
-            'data_preview' => [
-                'nom_complet' => $input['nom_complet'] ?? 'missing',
-                'email' => $input['email'] ?? 'missing',
-                'age' => $input['age'] ?? 'missing',
-                'ville' => $input['ville'] ?? 'missing',
-                'genre' => $input['genre'] ?? 'missing',
-                'niveau_etude' => $input['niveau_etude'] ?? 'missing',
-                'filiere' => $input['filiere'] ?? 'missing',
-                'langue_bac' => $input['langue_bac'] ?? 'missing',
-                'moyenne_general_bac' => $input['moyenne_general_bac'] ?? 'missing',
-                'has_password' => isset($input['password']) ? 'yes' : 'no',
-                'has_password_confirmation' => isset($input['password_confirmation']) ? 'yes' : 'no',
-            ]
-        ]);
-
         try {
-            Log::info('📋 CreateNewStudent: Starting validation');
-
             $validator = Validator::make($input, [
                 'nom_complet' => ['required', 'string', 'max:255'],
                 'ville' => ['required', 'string', 'max:255'],
@@ -77,16 +58,13 @@ class CreateNewStudent implements CreatesNewUsers
             ]);
 
             if ($validator->fails()) {
-                Log::warning('❌ CreateNewStudent: Validation failed', [
-                    'errors' => $validator->errors()->toArray(),
-                    'failed_rules' => $validator->failed()
+                Log::warning('Student registration validation failed', [
+                    'errors' => $validator->errors()->toArray()
                 ]);
             }
 
             $validator->validate();
-            Log::info('✅ CreateNewStudent: Validation passed successfully');
 
-            Log::info('🔨 CreateNewStudent: Preparing student data');
             $studentData = [
                 'nom_complet' => $input['nom_complet'],
                 'ville' => $input['ville'],
@@ -100,49 +78,31 @@ class CreateNewStudent implements CreatesNewUsers
                 'moyenne_general_bac' => $input['moyenne_general_bac'],
             ];
 
-            Log::info('💾 CreateNewStudent: Attempting to create student in database', [
-                'table' => 'students',
-                'email' => $studentData['email'],
-                'data_keys' => array_keys($studentData)
-            ]);
-
             $student = Student::create($studentData);
 
-            Log::info('🎉 CreateNewStudent: Student created successfully', [
+            // Keep this log - useful for monitoring new registrations
+            Log::info('Student registered successfully', [
                 'student_id' => $student->id,
-                'email' => $student->email,
-                'nom_complet' => $student->nom_complet,
-                'created_at' => $student->created_at,
-                'table_used' => $student->getTable()
+                'email' => $student->email
             ]);
 
-            Log::info('✨ CreateNewStudent: Action completed successfully');
             return $student;
 
         } catch (\Illuminate\Validation\ValidationException $e) {
-            Log::error('🚫 CreateNewStudent: Validation exception thrown', [
-                'errors' => $e->errors(),
-                'message' => $e->getMessage(),
-                'validator_errors' => $e->validator->errors()->toArray()
+            Log::warning('Student registration validation failed', [
+                'errors' => $e->errors()
             ]);
             throw $e;
         } catch (\Illuminate\Database\QueryException $e) {
-            Log::error('🗃️ CreateNewStudent: Database query failed', [
+            Log::error('Student registration database error', [
                 'error' => $e->getMessage(),
-                'sql' => $e->getSql(),
-                'bindings' => $e->getBindings(),
-                'error_code' => $e->getCode(),
-                'file' => $e->getFile(),
-                'line' => $e->getLine()
+                'email' => $input['email'] ?? 'unknown'
             ]);
             throw $e;
         } catch (\Exception $e) {
-            Log::error('💥 CreateNewStudent: Unexpected error occurred', [
+            Log::error('Student registration unexpected error', [
                 'error' => $e->getMessage(),
-                'exception_class' => get_class($e),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
-                'trace' => $e->getTraceAsString()
+                'email' => $input['email'] ?? 'unknown'
             ]);
             throw $e;
         }

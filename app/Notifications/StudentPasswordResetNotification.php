@@ -27,13 +27,6 @@ class StudentPasswordResetNotification extends ResetPassword
             'email' => $notifiable->getEmailForPasswordReset(),
         ], false));
 
-        // Log pour debug
-        Log::info('🔗 Lien de reset généré', [
-            'student' => $notifiable->email,
-            'token_preview' => substr($this->token, 0, 10) . '...',
-            'url' => $url,
-        ]);
-
         return $this->buildStyledEmail($notifiable, $url);
     }
 

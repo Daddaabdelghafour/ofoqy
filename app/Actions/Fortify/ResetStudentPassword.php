@@ -30,11 +30,11 @@ class ResetStudentPassword
             'remember_token' => null,
         ])->save();
 
-        // Log pour sécurité
-        Log::info('Password reset successful', [
+        // Keep this log for security monitoring
+        Log::info('Student password reset completed', [
             'student_id' => $student->id,
             'email' => $student->email,
-            'ip' => request()->ip(),
+            'ip' => request()->ip()
         ]);
     }
 }

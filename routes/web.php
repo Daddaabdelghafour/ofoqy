@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Actions\Fortify\CreateNewStudent;
 use App\Actions\Fortify\AuthenticateStudent;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\MBTIController;
 
 Route::get('/', function () {
     return Inertia::render('Landing/Index');
@@ -24,7 +26,6 @@ Route::post('/register', function (Request $request, CreateNewStudent $action) {
 });
 
 // Login routes - WITH guest middleware (only unauthenticated users)
-
 Route::middleware('guest')->group(function () {
     Route::get('/login', function () {
         return Inertia::render('auth/login');
@@ -33,8 +34,15 @@ Route::middleware('guest')->group(function () {
 
     Route::post('/login', function (Request $request, AuthenticateStudent $action) {
         $student = $action->authenticate($request->all());
-        Auth::login($student);
-        return redirect('/dashboard');
+        
+        Log::info('LOGIN - Before Auth::guard(student)->login()', [
+            'student_id' => $student->id,
+            'email' => $student->email
+        ]);
+        
+        Auth::guard('student')->login($student);
+        
+        return redirect('/MBTI');
     });
 
 });
@@ -47,12 +55,24 @@ Route::post('/logout', function (Request $request) {
     return redirect('/');
 })->name('logout');
 
-// Fix duplicate dashboard - keep only protected one
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('dashboard'); // Capital D for consistency
-    })->name('dashboard');
-});
+
+// Dashboard for students (using student guard)
+Route::get('/dashboard', function () {
+    // Check if student is authenticated
+    if (!Auth::guard('student')->check()) {
+        return redirect('/login');
+    }
+    
+    $student = Auth::guard('student')->user();
+    
+    // Get their MBTI result if they have one
+    $mbtiResult = \App\Models\TestPersonnalite::where('student_id', $student->id)->first();
+    
+    return Inertia::render('dashboard', [
+        'student' => $student,
+        'mbtiResult' => $mbtiResult
+    ]);
+})->name('dashboard');
 
 // 🔐 Routes de réinitialisation de mot de passe
 Route::middleware('guest')->group(function () {
@@ -74,15 +94,17 @@ Route::middleware('guest')->group(function () {
         ->name('password.store');
 });
 
+// MBTI routes
 Route::get('/MBTI', function () {
-        return Inertia::render('MBTI/Acceuil');
-    })->name('MBTI/acceuil');
-    Route::get('/questions', function () {
-        return Inertia::render('MBTI/Questions');
-    })->name('MBTI/acceuil');
+    return Inertia::render('MBTI/Acceuil');
+})->name('/MBTI');
 
-// MBTI API route - requires authentication
-Route::post('/api/mbti-result', [MBTIController::class, 'store'])->middleware('auth')->name('mbti.store');    
+Route::get('/questions', function () {
+    return Inertia::render('MBTI/Questions');
+})->name('/questions');
+
+// MBTI API endpoint - moved from api.php to maintain session
+Route::post('/mbti-result', [MBTIController::class, 'store']);
 
 require __DIR__ . '/settings.php';
 #require __DIR__ . '/auth.php';

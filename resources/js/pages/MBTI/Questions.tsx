@@ -5,6 +5,7 @@ import SI from '@/components/SI';
 import CT from '@/components/CT';
 import LH from '@/components/LH';
 import JP from '@/components/JP';
+import Notification from '@/components/Notification';
 
 const countsInSlides: { [key: string]: number } = {
   SI: 3,
@@ -17,6 +18,17 @@ function Questions() {
   const [current, setCurrent] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
   const [progressIndex, setProgressIndex] = useState(0);
+  const [notification, setNotification] = useState<{
+    show: boolean;
+    type: 'success' | 'error' | 'warning';
+    title: string;
+    message: string;
+  }>({ show: false, type: 'success', title: '', message: '' });
+
+  const showNotification = (type: 'success' | 'error' | 'warning', title: string, message: string) => {
+    setNotification({ show: true, type, title, message });
+    setTimeout(() => setNotification(prev => ({ ...prev, show: false })), 5000);
+  };
 
   const [scores, setScores] = useState<{ [key: string]: number }>({
     S: 0,
@@ -49,7 +61,7 @@ function Questions() {
     const q2 = current * 2 + 1;
 
     if (!selectedAnswers[q1] || !selectedAnswers[q2]) {
-      alert('Veuillez répondre aux deux questions');
+      showNotification('warning', 'Questions manquantes', 'Veuillez répondre aux deux questions');
       return;
     }
 
@@ -73,31 +85,49 @@ function Questions() {
       setProgressIndex(0);
     } else {
       const result =
-      (scores.E >= scores.I ? 'E' : 'I') +
-      (scores.S >= scores.N ? 'S' : 'N') +
-      (scores.T >= scores.F ? 'T' : 'F') +
-      (scores.J >= scores.P ? 'J' : 'P');
+      (scores.S >= scores.I ? 'S' : 'I') +
+      (scores.C >= scores.T ? 'C' : 'T') +
+      (scores.J >= scores.P ? 'J' : 'P') +
+      (scores.L >= scores.H ? 'L' : 'H');
 
     try {
-      const response = await fetch('/api/mbti-result', {
+      const response = await fetch('/mbti-result', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json',
+        headers: { 
+          'Content-Type': 'application/json',
           'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
          },
         body: JSON.stringify({ result }),
       });
-      const data = await response.json();
-      if (response.ok && data.success) {
-          console.log('Success:', data.message);
-      }
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+      // Check if it's an authentication error
+      if (response.status === 401) {
+        showNotification('error', 'Non autorisé', 'Vous devez être connecté. Redirection...');
+        setTimeout(() => {
+          window.location.href = '/login';
+        }, 2000);
       }
+    }
+
+      const data = await response.json();
+      if (data.success) {
+          console.log('Success:', data.message);
+          console.log('MBTI Type saved:', data.mbti_type);
+          console.log('MBTI personality message:',data.personalized_message)
+          showNotification('success', 'Résultat enregistré', 'Votre type MBTI a été enregistré avec succès.');
+        setTimeout(() => {
+          window.location.href = '/dashboard';
+        }, 2000);
+      }
+      else {
+      console.error('Error:', data.message);
+      window.location.href = '/questions';
+    }
       
       // You can add navigation or UI update here after success
     } catch (error) {
       console.error('Error:', error);
-      alert('Erreur lors de l\'envoi des résultats.');
+      showNotification('error', 'Erreur', 'Erreur lors de l\'envoi des résultats.Veuillez rafraîchir la page');
     }
     }
   };
@@ -108,6 +138,9 @@ function Questions() {
 
   return (
     <div className="w-full p-8 min-h-screen">
+      {/* Use the reusable Notification component */}
+      <Notification notification={notification} />
+      
       <div className="flex justify-between mb-10">
         <a href="/MBTI" className="hover:after:w-0">
           <ArrowLeft className="w-[20px] h-[20px]" />

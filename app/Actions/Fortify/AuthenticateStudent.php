@@ -15,16 +15,7 @@ class AuthenticateStudent
      */
     public function authenticate(array $input): Student
     {
-        Log::info('🔐 AuthenticateStudent: Action initiated', [
-            'input_keys' => array_keys($input),
-            'email' => $input['email'] ?? 'missing',
-            'has_password' => isset($input['password']) ? 'yes' : 'no',
-            'remember' => $input['remember'] ?? false,
-        ]);
-
         try {
-            Log::info('📋 AuthenticateStudent: Starting validation');
-
             $validator = Validator::make($input, [
                 'email' => ['required', 'string', 'email'],
                 'password' => ['required', 'string'],
@@ -35,17 +26,8 @@ class AuthenticateStudent
             ]);
 
             if ($validator->fails()) {
-                Log::warning('❌ AuthenticateStudent: Validation failed', [
-                    'errors' => $validator->errors()->toArray(),
-                ]);
                 throw new ValidationException($validator);
             }
-
-            Log::info('✅ AuthenticateStudent: Validation passed');
-
-            Log::info('🔍 AuthenticateStudent: Looking for student by email', [
-                'email' => $input['email']
-            ]);
 
             $student = Student::where('email', $input['email'])->first();
 
@@ -66,10 +48,11 @@ class AuthenticateStudent
 
             Log::info('🔒 AuthenticateStudent: Verifying password');
 
-            if (!Hash::check($input['password'], $student->password)) {
-                Log::warning('🚫 AuthenticateStudent: Password verification failed', [
-                    'student_id' => $student->id,
-                    'email' => $student->email,
+            if (!$student || !Hash::check($input['password'], $student->password)) {
+                // Keep security logs for failed login attempts
+                Log::warning('Student authentication failed', [
+                    'email' => $input['email'],
+                    'ip' => request()->ip()
                 ]);
 
                 throw ValidationException::withMessages([
@@ -77,27 +60,20 @@ class AuthenticateStudent
                 ]);
             }
 
-            Log::info('🎉 AuthenticateStudent: Authentication successful', [
+            // Keep successful login logs for security monitoring
+            Log::info('Student authenticated successfully', [
                 'student_id' => $student->id,
-                'email' => $student->email,
-                'nom_complet' => $student->nom_complet,
+                'email' => $student->email
             ]);
 
-            Log::info('✨ AuthenticateStudent: Action completed successfully');
             return $student;
 
         } catch (ValidationException $e) {
-            Log::error('🚫 AuthenticateStudent: Validation exception thrown', [
-                'errors' => $e->errors(),
-                'message' => $e->getMessage(),
-            ]);
             throw $e;
         } catch (\Exception $e) {
-            Log::error('💥 AuthenticateStudent: Unexpected error occurred', [
+            Log::error('Student authentication error', [
                 'error' => $e->getMessage(),
-                'exception_class' => get_class($e),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
+                'email' => $input['email'] ?? 'unknown'
             ]);
             throw $e;
         }

@@ -14,23 +14,23 @@ return new class extends Migration {
             $table->id();
             $table->foreignId("student_id")->unique()->constrained("students")->onDelete("cascade");
             $table->enum("type_mbti", [
-                'INTJ',
-                'INTP',
-                'ENTJ',
-                'ENTP',
-                'INFJ',
-                'INFP',
-                'ENFJ',
-                'ENFP',
-                'ISTJ',
-                'ISFJ',
-                'ESTJ',
-                'ESFJ',
-                'ISTP',
-                'ISFP',
-                'ESTP',
-                'ESFP'
-            ]);
+            'SCJL',
+            'SCJH',
+            'SCPL',
+            'SCPH',
+            'STJL',
+            'STJH',
+            'STPL',
+            'STPH',
+            'ICJL',
+            'ICJH',
+            'ICPL',
+            'ICPH',
+            'ITJL',
+            'ITJH',
+            'ITPL',
+            'ITPH'
+        ]);
             $table->json("resultat_json");
             $table->timestamps();
         });

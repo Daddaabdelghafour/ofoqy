@@ -12,9 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        Log::info('🔥 AppServiceProvider register() called');
         $this->app->register(\App\Providers\FortifyServiceProvider::class);
-        Log::info('🎯 FortifyServiceProvider registered');
     }
 
     /**
@@ -22,6 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Log::info('🔥 AppServiceProvider boot() called');
+        //
     }
 }
