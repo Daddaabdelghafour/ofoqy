@@ -12,6 +12,8 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\MBTIController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\EmailCheckController;
+use App\Http\Controllers\UniversitesController;
+
 
 Route::get('/', function () {
     return Inertia::render('Landing/Index');
@@ -94,6 +96,33 @@ Route::get('/questions', function () {
 
 // MBTI API endpoint - moved from api.php to maintain session
 Route::post('/mbti-result', [MBTIController::class, 'store']);
+// University routes (Rest API for data)
+Route::get('/universites', [UniversitesController::class, 'index']);
+Route::get('/universites/{id}', [UniversitesController::class, 'show']);
+Route::get('/universites-statistics', [UniversitesController::class, 'statistics']);
+Route::post('/universites/by-bac-type', [UniversitesController::class, 'findByBacType']);
+
+// University routes (To show all universities)
+Route::get('/dashboard/universities', function () {
+    return Inertia::render('Dashboard/Universities');
+})->name('dashboard.universities');
+
+// University routes (To show a single university)
+Route::get("/dashboard/universities/{id}", function ($id) {
+    return Inertia::render("Dashboard/UniversityDetail", [
+        'id' => $id
+    ]);
+})->name('dashboard.universities.show');
+
+Route::get('/universites-export', [UniversitesController::class, 'export'])->name('universites.export');
+// Import universities from JSON
+Route::post('/universites-import', [UniversitesController::class, 'import'])->name('universites.import');
+
+// Import page route
+Route::get('/import-universities', function () {
+    return Inertia::render('ImportUniversities');
+})->name('import.universities');
+
 
 require __DIR__ . '/settings.php';
 #require __DIR__ . '/auth.php';
