@@ -8,6 +8,7 @@ type StepFormProps = {
   processing: boolean;
   errors: any;
 };
+
 const moroccancities=[
   "Casablanca",
   "Rabat",
@@ -39,7 +40,8 @@ const moroccancities=[
   "Berkane",
   "Al Hoceïma"
 ];
-export default function StepForm({
+
+export default function Steps({
   currentStep,
   data,
   setData,

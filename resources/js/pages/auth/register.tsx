@@ -20,12 +20,35 @@ export default function Register() {
 
     const [currentStep, setCurrentStep] = useState(1);
     const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
+    const [isCheckingEmail, setIsCheckingEmail] = useState(false);
+
+    // Function to check if email already exists
+    const checkEmailExists = async (email: string): Promise<boolean> => {
+        try {
+            setIsCheckingEmail(true);
+            const response = await fetch('/check-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
+                },
+                body: JSON.stringify({ email })
+            });
+            const result = await response.json();
+            return result.exists;
+        } catch (error) {
+            console.error('Error checking email:', error);
+            return false;
+        } finally {
+            setIsCheckingEmail(false);
+        }
+    };
 
     function nextStep() {
         setCurrentStep((prev) => Math.min(prev + 1, 4));
     }
 
-    function submit(e: React.FormEvent<HTMLFormElement>) {
+    async function submit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const newErrors: { [key: string]: string } = {};
         setData('niveau_etude', 'baccalaureat');
@@ -35,7 +58,22 @@ export default function Register() {
             if (!data.email) {
                 newErrors.email = 'Email requis.';
                 isValid = false;
+            } else {
+                // Basic email format validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email)) {
+                    newErrors.email = 'Format d\'email invalide.';
+                    isValid = false;
+                } else {
+                    // Check if email already exists
+                    const emailExists = await checkEmailExists(data.email);
+                    if (emailExists) {
+                        newErrors.email = 'Cet email est déjà utilisé.';
+                        isValid = false;
+                    }
+                }
             }
+
             if (!data.password) {
                 newErrors.password = 'Mot de passe requis.';
                 isValid = false;
@@ -186,9 +224,9 @@ export default function Register() {
                     <button
                         type="submit"
                         className="my-6 h-[51px] rounded-[3px] bg-primary-1000 px-4 text-[16px] font-normal text-white"
-                        disabled={processing}
+                        disabled={processing || isCheckingEmail}
                     >
-                        {currentStep === 3 ? 'Terminer' : 'Suivant'}
+                        {isCheckingEmail ? 'Vérification de l\'email...' : currentStep === 3 ? 'Terminer' : 'Suivant'}
                     </button>
                 </form>
 

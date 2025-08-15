@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\MBTIController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Auth\EmailCheckController;
 
 Route::get('/', function () {
     return Inertia::render('Landing/Index');
@@ -24,6 +26,9 @@ Route::post('/register', function (Request $request, CreateNewStudent $action) {
     $student = $action->create($request->all());
     return redirect('/login');
 });
+
+// Email check route for registration validation
+Route::post('/check-email', [EmailCheckController::class, 'checkEmail']);
 
 // Login routes - WITH guest middleware (only unauthenticated users)
 Route::middleware('guest')->group(function () {
@@ -56,23 +61,7 @@ Route::post('/logout', function (Request $request) {
 })->name('logout');
 
 
-// Dashboard for students (using student guard)
-Route::get('/dashboard', function () {
-    // Check if student is authenticated
-    if (!Auth::guard('student')->check()) {
-        return redirect('/login');
-    }
-    
-    $student = Auth::guard('student')->user();
-    
-    // Get their MBTI result if they have one
-    $mbtiResult = \App\Models\TestPersonnalite::where('student_id', $student->id)->first();
-    
-    return Inertia::render('dashboard', [
-        'student' => $student,
-        'mbtiResult' => $mbtiResult
-    ]);
-})->name('dashboard');
+Route::get('/profile',  [ProfileController::class, 'profile']);
 
 // 🔐 Routes de réinitialisation de mot de passe
 Route::middleware('guest')->group(function () {

@@ -17,7 +17,7 @@ function Acceuil(){
             <ArrowRight className="pt-1 pb-1 ml-1 font-medium" />
             </button>
             <div className='text-center flex flex-col justify-end '>
-            <a href="/dashboard" className='text-primary-1000 font-normal h-[50px] pt-[10px]'>Passer</a>
+            <a href="/profile" className='text-primary-1000 font-normal h-[50px] pt-[10px]'>Passer</a>
             </div>
           </div>
         </div>

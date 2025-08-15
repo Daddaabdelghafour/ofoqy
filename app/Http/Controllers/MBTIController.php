@@ -8,9 +8,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use App\Models\TestPersonnalite;
+use App\Services\MBTI\TextGeneration;
 
 class MBTIController extends Controller
 {
+    private TextGeneration $textGeneration;
+
+    public function __construct(TextGeneration $textGeneration)
+    {
+        $this->textGeneration = $textGeneration;
+    }
+
+     // Keep your existing getMBTIMessage method as fallback
     public function getMBTIMessage(string $mbtiType): string
     {
         $messages = [
@@ -80,15 +89,25 @@ class MBTIController extends Controller
         }
 
         try {
-            // Get the personalized message
-            $personalizedMessage = $this->getMBTIMessage($request->result);
+           // Try AI-generated message first, fallback to hardcoded if it fails
+            $personalizedMessage = $this->textGeneration->generateMBTIMessage($request->result);
+ 
+            // If AI fails completely, use hardcoded message
             
+            if (empty($personalizedMessage)) {
+                $personalizedMessage = $this->getMBTIMessage($request->result);
+            }
+                
+
             TestPersonnalite::updateOrCreate(
                 ['student_id' => $student->id],
                 [
                     'type_mbti' => $request->result,
                     'resultat_json' => [
-                        'message' => $personalizedMessage
+                        'message' => $personalizedMessage,
+                        'generated_at' => now()->toISOString(),
+                        'generated_by' => 'ai',
+                        'model_used' => config('services.openrouter.model')
                     ]
                 ]
             );

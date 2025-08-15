@@ -116,7 +116,7 @@ function Questions() {
           console.log('MBTI personality message:',data.personalized_message)
           showNotification('success', 'Résultat enregistré', 'Votre type MBTI a été enregistré avec succès.');
         setTimeout(() => {
-          window.location.href = '/dashboard';
+          window.location.href = '/profile';
         }, 2000);
       }
       else {

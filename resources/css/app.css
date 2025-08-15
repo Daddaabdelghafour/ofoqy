@@ -60,10 +60,10 @@
   hover:after:w-full hover:text-primary-1000 hover:font-medium ;
   }
 
-  /* Focus styles */
+  /* Focus styles 
   *:focus {
     @apply outline-none ring-2 ring-primary-500 ring-offset-2;
-  }
+  }*/
 }
 
 @layer components {
