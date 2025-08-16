@@ -1,15 +1,11 @@
-import { usePage } from '@inertiajs/react';
-import axios from 'axios';
+import { router } from '@inertiajs/react';
 import { useState } from 'react';
 
 const ImportUniversities = () => {
-    const { csrf_token } = usePage<{ csrf_token: string }>().props;
     const [status, setStatus] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [fileData, setFileData] = useState<any>(null);
-    const [validationErrors, setValidationErrors] = useState<string[]>([]);
-
-    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const [validationErrors, setValidationErrors] = useState<string[]>([]);    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
 
@@ -88,7 +84,7 @@ const ImportUniversities = () => {
         return errors;
     };
 
-    const handleImport = async () => {
+    const handleImport = () => {
         if (!fileData) {
             setStatus('Aucune donnée à importer');
             return;
@@ -97,40 +93,24 @@ const ImportUniversities = () => {
         setIsLoading(true);
         setStatus('Importation en cours...');
 
-        try {
-            // Ensure the data is properly stringified
-            const response = await axios.post('/universites-import', fileData, {
-                headers: {
-                    'X-CSRF-TOKEN': csrf_token,
-                    'Content-Type': 'application/json',
-                },
-                timeout: 120000, // 2 minutes
-            });
-
-            setStatus(`Succès: ${response.data.message || 'Importation réussie'}`);
-            setFileData(null);
-
-            // Clear file input
-            const fileInput = document.getElementById('fileInput') as HTMLInputElement;
-            if (fileInput) fileInput.value = '';
-        } catch (error: any) {
-            console.error('Import error:', error);
-
-            if (error.response) {
-                // The request was made and the server responded with a status code
-                // that falls out of the range of 2xx
-                setStatus(`Erreur ${error.response.status}: ${error.response.data.error || error.response.data.message || 'Erreur serveur'}`);
-                console.error('Server response:', error.response.data);
-            } else if (error.request) {
-                // The request was made but no response was received
-                setStatus('Erreur: Le serveur ne répond pas, peut-être que le fichier est trop volumineux');
-            } else {
-                // Something happened in setting up the request
-                setStatus(`Erreur: ${error.message}`);
+        // Use Inertia router instead of axios - it handles CSRF automatically
+        router.post('/universites-import', fileData, {
+            onSuccess: (response) => {
+                setStatus('Succès: Importation réussie');
+                setFileData(null);
+                
+                // Clear file input
+                const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+                if (fileInput) fileInput.value = '';
+            },
+            onError: (errors) => {
+                console.error('Import error:', errors);
+                setStatus(`Erreur: ${errors.message || 'Erreur serveur'}`);
+            },
+            onFinish: () => {
+                setIsLoading(false);
             }
-        } finally {
-            setIsLoading(false);
-        }
+        });
     };
 
     return (

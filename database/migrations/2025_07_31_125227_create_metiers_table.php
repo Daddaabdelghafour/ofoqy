@@ -12,10 +12,8 @@ return new class extends Migration {
     {
         Schema::create('metiers', function (Blueprint $table) {
             $table->id();
-            $table->string("nom");
-            $table->integer("salaire_indicatif")->nullable();
-            $table->text("description")->nullable();
-            $table->foreignId("universite_id")->constrained("universites")->onDelete("cascade");
+            $table->string("nom")->unique(); // Make nom unique since no more duplicates
+            $table->text("description")->nullable(); // Changed from json to text
             $table->timestamps();
         });
     }
