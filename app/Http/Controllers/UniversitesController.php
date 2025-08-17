@@ -147,7 +147,7 @@ class UniversitesController extends Controller
             return response()->json($university);
         } catch (\Exception $e) {
             return response()->json([
-                'error' => 'Université non trouvée',
+                'error' => 'université non trouvée',
                 'message' => $e->getMessage()
             ], 404);
         }
