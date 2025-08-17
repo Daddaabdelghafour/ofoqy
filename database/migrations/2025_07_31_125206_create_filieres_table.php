@@ -13,9 +13,9 @@ return new class extends Migration {
         Schema::create('filieres', function (Blueprint $table) {
             $table->id();
             $table->string("nom");
-            $table->text("description")->nullable();
-            $table->text("competences")->nullable();
-            $table->text("parcours_formation")->nullable();
+            $table->json("description")->nullable();
+            $table->json("competences")->nullable();
+            $table->json("parcours_formation")->nullable();
             $table->foreignId("universite_id")->constrained("universites")->onDelete("cascade");
 
             $table->timestamps();

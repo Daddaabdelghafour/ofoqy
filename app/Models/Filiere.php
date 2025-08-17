@@ -12,6 +12,7 @@ class Filiere extends Model
         'competences',
         'parcours_formation',
         'universite_id',
+        'image_path',
     ];
 
 

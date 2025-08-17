@@ -8,22 +8,19 @@ class Metier extends Model
 {
     protected $fillable = [
         'nom',
-        'salaire_indicatif',
         'description',
-        'universite_id',
-        'secteur_activite',
-        'niveau_experience_requis',
-        'competences_requises',
+        'image_path',
     ];
 
     protected $casts = [
-        'salaire_indicatif' => 'integer',
-        'competences_requises' => 'array',
+        // Removed salaire_indicatif and universite_id as they're in pivot
     ];
 
-    public function universite()
+    public function universites()
     {
-        return $this->belongsTo(Universite::class);
+        return $this->belongsToMany(Universite::class)
+                   ->withPivot('salaire_indicatif')
+                   ->withTimestamps();
     }
 
     public function correspondancesMbti()
