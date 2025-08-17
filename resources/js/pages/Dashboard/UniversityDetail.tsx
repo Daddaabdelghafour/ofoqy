@@ -1,8 +1,8 @@
+import { getUniversityImagePath } from '@/helpers/UniversityImageHelper';
 import DashboardLayout from '@/layouts/Dashboard-layout';
 import axios from 'axios';
 import { ArrowRight, Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
-
 interface Props {
     id: string;
 }
@@ -104,7 +104,7 @@ const UniversityDetail = (props: Props) => {
     if (loading) {
         return (
             <div className="min-h-screen">
-                <DashboardLayout>
+                <DashboardLayout name="" level="">
                     <div className="flex h-screen items-center justify-center">
                         <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-[#1D7A85]"></div>
                     </div>
@@ -117,7 +117,7 @@ const UniversityDetail = (props: Props) => {
     if (error || !university) {
         return (
             <div className="min-h-screen">
-                <DashboardLayout>
+                <DashboardLayout name="" level="">
                     <div className="flex h-screen flex-col items-center justify-center px-4 text-center">
                         <img src="/images/Logo.png" alt="Error" className="mb-6 h-24 w-24" />
                         <h2 className="mb-2 text-xl font-bold text-gray-800">Oups! Une erreur s'est produite</h2>
@@ -151,17 +151,23 @@ const UniversityDetail = (props: Props) => {
 
     return (
         <div className="min-h-screen">
-            <DashboardLayout>
+            <DashboardLayout name="" level="">
                 <div className="min-h-screen px-4 py-6 md:p-8 lg:p-10">
                     {/* Header Section with Background and Logo */}
                     <div className="relative mb-6 w-full">
                         <div
                             className="h-[180px] w-full rounded-lg bg-cover bg-center bg-no-repeat sm:h-[200px] md:h-[233px]"
-                            style={{ backgroundImage: "url('/images/unibg.png')" }}
+                            style={{
+                                backgroundImage: `url('/${getUniversityImagePath(university.id)}')`,
+                            }}
                         >
                             {/* School Logo - Responsive Positioning */}
                             <div className="absolute bottom-0 left-5 h-[100px] w-[100px] translate-y-1/2 overflow-hidden rounded-full border-4 border-white bg-white shadow-md sm:h-[130px] sm:w-[130px] md:h-[150px] md:w-[150px]">
-                                <img src="/images/ensias.png" className="h-full w-full object-contain p-2" alt={university.nom} />
+                                <img
+                                    src={'/' + getUniversityImagePath(university.id)}
+                                    className="h-full w-full object-contain p-2"
+                                    alt={university.nom}
+                                />
                             </div>
                         </div>
                     </div>

@@ -114,7 +114,7 @@ const Universities: React.FC = () => {
     };
 
     return (
-        <DashboardLayout>
+        <DashboardLayout name="" level="">
             <div className="min-h-screen w-full px-3 sm:px-4 md:px-6">
                 <h1 className="mb-4 text-xl font-bold text-gray-800 sm:mb-6 sm:text-2xl">Universités</h1>
 
@@ -248,24 +248,22 @@ const Universities: React.FC = () => {
                     </div>
                 ) : (
                     <>
-                        {/* Card Layout with flex and justify-between for even spacing */}
+                        {/* Card Layout - FIXED */}
                         <div className="rounded-lg bg-white p-3 shadow-sm sm:p-6">
                             {universities.length > 0 ? (
-                                <div className="flex flex-wrap justify-between">
+                                <div className="grid grid-cols-3 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
                                     {universities.map((university) => (
-                                        <div key={university.id} className="mb-8 w-full px-2 sm:w-1/2 lg:w-1/3 xl:w-1/4">
-                                            <div className="flex justify-center">
-                                                <UniversityCard
-                                                    id={university.id}
-                                                    nom={university.nom}
-                                                    type={university.type}
-                                                    localisation={university.localisation}
-                                                    seuils_admission={university.seuils_admission}
-                                                    onViewDetails={handleViewDetails}
-                                                    onToggleFavorite={handleToggleFavorite}
-                                                    isFavorite={favorites.includes(university.id)}
-                                                />
-                                            </div>
+                                        <div key={university.id} className="flex justify-between">
+                                            <UniversityCard
+                                                id={university.id}
+                                                nom={university.nom}
+                                                type={university.type}
+                                                localisation={university.localisation}
+                                                seuils_admission={university.seuils_admission}
+                                                onViewDetails={handleViewDetails}
+                                                onToggleFavorite={handleToggleFavorite}
+                                                isFavorite={favorites.includes(university.id)}
+                                            />
                                         </div>
                                     ))}
                                 </div>

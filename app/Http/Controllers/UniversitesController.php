@@ -111,7 +111,7 @@ class UniversitesController extends Controller
             }
 
             // Apply pagination
-            $perPage = $request->get('per_page', 3);
+            $perPage = $request->get('per_page', 6);
             $universities = $query->paginate($perPage);
 
             return response()->json([
@@ -142,7 +142,7 @@ class UniversitesController extends Controller
     public function show($id): JsonResponse
     {
         try {
-            $university = Universite::with(['filieres', 'metiers'])->findOrFail($id);
+            $university = Universite::findOrFail($id);
 
             return response()->json($university);
         } catch (\Exception $e) {
