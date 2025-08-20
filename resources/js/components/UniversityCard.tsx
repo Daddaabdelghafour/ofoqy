@@ -1,6 +1,6 @@
+import { getUniversityImagePath } from '@/helpers/UniversityImageHelper';
 import { ChevronDown, Heart } from 'lucide-react';
 import React, { useState } from 'react';
-
 type UniversityCardProps = {
     id: number;
     nom: string;
@@ -47,12 +47,24 @@ const UniversityCard: React.FC<UniversityCardProps> = ({
             </button>
 
             {/* Image */}
+
             <div className="relative h-[160px] overflow-hidden">
                 <img
-                    src="/images/ensa.jpg"
+                    src={getUniversityImagePath(id)}
                     alt={`${nom} - ${localisation}`}
-                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                    className="h-full w-full object-contain transition-transform duration-300 hover:scale-105"
+                    onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/images/Schools/default.png';
+                    }}
                 />
+                <span
+                    className={`absolute left-3 top-3 rounded-sm px-2 py-0.5 text-xs font-semibold ${
+                        isPublic ? 'bg-[#1D7A8533] text-[#1D7A85]' : 'bg-blue-100 text-blue-800'
+                    }`}
+                >
+                    {type}
+                </span>
             </div>
 
             {/* Content */}

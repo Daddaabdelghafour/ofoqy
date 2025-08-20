@@ -44,14 +44,14 @@ Route::middleware('guest')->group(function () {
 
     Route::post('/login', function (Request $request, AuthenticateStudent $action) {
         $student = $action->authenticate($request->all());
-        
+
         Log::info('LOGIN - Before Auth::guard(student)->login()', [
             'student_id' => $student->id,
             'email' => $student->email
         ]);
-        
+
         Auth::guard('student')->login($student);
-        
+
         return redirect('/MBTI');
     });
 
@@ -66,7 +66,7 @@ Route::post('/logout', function (Request $request) {
 })->name('logout');
 
 
-Route::get('/profile',  [ProfileController::class, 'profile']);
+Route::get('/profile', [ProfileController::class, 'profile']);
 
 // 🔐 Routes de réinitialisation de mot de passe
 Route::middleware('guest')->group(function () {
@@ -106,7 +106,7 @@ Route::get('/universites-statistics', [UniversitesController::class, 'statistics
 Route::post('/universites/by-bac-type', [UniversitesController::class, 'findByBacType']);
 
 // University routes (To show all universities)
-Route::get('/dashboard/universities', function () {
+Route::get('/universités', function () {
     return Inertia::render('Dashboard/Universities');
 })->name('dashboard.universities');
 

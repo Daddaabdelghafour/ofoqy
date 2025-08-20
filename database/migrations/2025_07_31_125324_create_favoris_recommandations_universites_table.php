@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->date("date_favoris");
             $table->timestamps();
 
-            $table->unique(["student_id", "universite_id"]);
+            $table->unique(["student_id", "universite_id"],'favoris_unique');
 
         });
     }
