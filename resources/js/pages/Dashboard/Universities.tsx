@@ -23,7 +23,15 @@ type PaginationData = {
     last_page: number;
 };
 
-const Universities: React.FC = () => {
+type UniversitiesProps = {
+    student: {
+        nom_complet: string;
+        filiere: string;
+        profile_photo_path: string | null;
+    };
+};
+
+const Universities: React.FC<UniversitiesProps> = ({ student }) => {
     const [universities, setUniversities] = useState<Universite[]>([]);
     const [loading, setLoading] = useState(true);
     const [favorites, setFavorites] = useState<number[]>([]);
@@ -46,6 +54,16 @@ const Universities: React.FC = () => {
         ouvert: false,
     });
 
+    const fetchFavoriteIds = async () => {
+        try {
+            const response = await axios.get('/favorite-ids');
+            setFavorites(response.data.favorites);
+            console.log(favorites);
+        } catch (error) {
+            console.error('Error fetching favorite IDs:', error);
+        }
+    };
+
     const fetchUniversities = async (page = 1) => {
         try {
             setLoading(true);
@@ -64,7 +82,7 @@ const Universities: React.FC = () => {
             if (filters.ouvert) params.append('ouvert', 'true');
 
             const response = await axios.get(`/universites?${params.toString()}`);
-
+            console.log(response.data.data[0].seuils_admission);
             setUniversities(response.data.data);
             setPagination(response.data.pagination);
         } catch (error) {
@@ -76,23 +94,24 @@ const Universities: React.FC = () => {
 
     useEffect(() => {
         fetchUniversities();
-
-        // Load favorites from localStorage
-        const savedFavorites = localStorage.getItem('favoriteUniversities');
-        if (savedFavorites) {
-            setFavorites(JSON.parse(savedFavorites));
-        }
+        fetchFavoriteIds();
     }, []);
 
     const handleViewDetails = (id: number) => {
         window.location.href = `/dashboard/universities/${id}`;
     };
 
-    const handleToggleFavorite = (id: number, isFavorite: boolean) => {
-        const newFavorites = isFavorite ? [...favorites, id] : favorites.filter((favId) => favId !== id);
-
-        setFavorites(newFavorites);
-        localStorage.setItem('favoriteUniversities', JSON.stringify(newFavorites));
+    const handleToggleFavorite = async (id: number, isFavorite: boolean) => {
+        try {
+            await axios.post('/favorite', {
+                universite_id: id,
+                is_favorite: isFavorite,
+            });
+            // Optionally update local state for UI feedback
+            setFavorites(isFavorite ? [...favorites, id] : favorites.filter((favId) => favId !== id));
+        } catch (error) {
+            console.error('Erreur lors de la sauvegarde du favori:', error);
+        }
     };
 
     const handlePageChange = (page: number) => {
@@ -114,7 +133,7 @@ const Universities: React.FC = () => {
     };
 
     return (
-        <DashboardLayout name="" level="">
+        <DashboardLayout name={student.nom_complet} level={student.filiere}>
             <div className="min-h-screen w-full px-3 sm:px-4 md:px-6">
                 <h1 className="mb-4 text-xl font-bold text-gray-800 sm:mb-6 sm:text-2xl">Universités</h1>
 
@@ -249,7 +268,7 @@ const Universities: React.FC = () => {
                 ) : (
                     <>
                         {/* Card Layout - FIXED */}
-                        <div className="rounded-lg bg-white p-3 shadow-sm sm:p-6">
+                        <div className="rounded-lg bg-white p-[150px] shadow-sm sm:p-[80px]">
                             {universities.length > 0 ? (
                                 <div className="grid grid-cols-3 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
                                     {universities.map((university) => (

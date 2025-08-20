@@ -22,8 +22,10 @@ const UniversityCard: React.FC<UniversityCardProps> = ({
     onToggleFavorite,
     isFavorite = false,
 }) => {
+    const seuils = typeof seuils_admission === 'string' ? JSON.parse(seuils_admission) : seuils_admission;
     const [favorite, setFavorite] = useState(isFavorite);
-    const [selectedYear, setSelectedYear] = useState<string>(Object.keys(seuils_admission)[0] || '');
+    const [selectedYear, setSelectedYear] = useState<string>(Object.keys(seuils)[0] || '');
+    console.log(selectedYear);
     const [showSeuils, setShowSeuils] = useState(false);
 
     const isPublic = type.toLowerCase() === 'publique';
@@ -50,7 +52,7 @@ const UniversityCard: React.FC<UniversityCardProps> = ({
 
             <div className="relative h-[160px] overflow-hidden">
                 <img
-                    src={getUniversityImagePath(id)}
+                    src={'/' + getUniversityImagePath(id)}
                     alt={`${nom} - ${localisation}`}
                     className="h-full w-full object-contain transition-transform duration-300 hover:scale-105"
                     onError={(e) => {
@@ -97,7 +99,7 @@ const UniversityCard: React.FC<UniversityCardProps> = ({
                 <hr className="my-2 border-gray-200" />
 
                 {/* Seuils dropdown - collapsed by default */}
-                {Object.keys(seuils_admission).length > 0 && (
+                {Object.keys(seuils).length > 0 && (
                     <div className="mb-3 rounded-lg border border-b-[#1D7A85] bg-white">
                         <button
                             onClick={toggleShowSeuils}
@@ -115,7 +117,7 @@ const UniversityCard: React.FC<UniversityCardProps> = ({
                                         value={selectedYear}
                                         onChange={(e) => setSelectedYear(e.target.value)}
                                     >
-                                        {Object.keys(seuils_admission).map((year) => (
+                                        {Object.keys(seuils).map((year) => (
                                             <option key={year} value={year}>
                                                 {year}
                                             </option>
@@ -124,10 +126,10 @@ const UniversityCard: React.FC<UniversityCardProps> = ({
                                 </div>
                                 {selectedYear && (
                                     <div className="max-h-[100px] overflow-y-auto text-xs">
-                                        {Object.entries(seuils_admission[selectedYear] || {}).map(([filiere, seuil]) => (
+                                        {Object.entries(seuils[selectedYear] || {}).map(([filiere, seuil]) => (
                                             <div key={filiere} className="flex justify-between border-b border-gray-100 py-1">
                                                 <span className="max-w-[65%] truncate text-gray-700">{filiere}:</span>
-                                                <span className="font-medium text-[#1D7A85]">{seuil}</span>
+                                                <span className="font-medium text-[#1D7A85]">{String(seuil)}</span>
                                             </div>
                                         ))}
                                     </div>

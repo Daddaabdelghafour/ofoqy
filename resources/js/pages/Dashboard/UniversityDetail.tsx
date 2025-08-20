@@ -3,9 +3,15 @@ import DashboardLayout from '@/layouts/Dashboard-layout';
 import axios from 'axios';
 import { ArrowRight, Heart } from 'lucide-react';
 import { useEffect, useState } from 'react';
-interface Props {
+
+type UniversitiesProps = {
+    student: {
+        nom_complet: string;
+        filiere: string;
+        profile_photo_path: string | null;
+    };
     id: string;
-}
+};
 
 // Define types for our university data
 type University = {
@@ -30,8 +36,7 @@ type University = {
     etat_postulation: string;
 };
 
-const UniversityDetail = (props: Props) => {
-    const { id } = props;
+const UniversityDetail = ({ student, id }: UniversitiesProps) => {
     const [university, setUniversity] = useState<University | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -49,14 +54,16 @@ const UniversityDetail = (props: Props) => {
         }
     };
 
-    useEffect(() => {
-        // Check if this university is in favorites
-        const savedFavorites = localStorage.getItem('favoriteUniversities');
-        if (savedFavorites) {
-            const favorites = JSON.parse(savedFavorites);
-            setIsFavorite(favorites.includes(Number(id)));
+    const fetchFavoriteStatus = async () => {
+        try {
+            const response = await axios.get(`/is-favorite/${id}`);
+            setIsFavorite(response.data.is_favorite);
+        } catch (error) {
+            console.error('Error fetching favorite status:', error);
         }
+    };
 
+    useEffect(() => {
         // Fetch university data
         const fetchUniversity = async () => {
             try {
@@ -80,31 +87,26 @@ const UniversityDetail = (props: Props) => {
         };
 
         fetchUniversity();
+        fetchFavoriteStatus();
     }, [id]);
 
-    const handleToggleFavorite = () => {
-        const newState = !isFavorite;
-        setIsFavorite(newState);
-
-        // Update localStorage
-        const savedFavorites = localStorage.getItem('favoriteUniversities');
-        const favorites = savedFavorites ? JSON.parse(savedFavorites) : [];
-
-        if (newState) {
-            favorites.push(Number(id));
-        } else {
-            const index = favorites.indexOf(Number(id));
-            if (index !== -1) favorites.splice(index, 1);
+    const handleToggleFavorite = async () => {
+        try {
+            await axios.post('/favorite', {
+                universite_id: Number(id),
+                is_favorite: !isFavorite,
+            });
+            setIsFavorite(!isFavorite);
+        } catch (error) {
+            console.error('Erreur lors de la sauvegarde du favori:', error);
         }
-
-        localStorage.setItem('favoriteUniversities', JSON.stringify(favorites));
     };
 
     // Loading state
     if (loading) {
         return (
             <div className="min-h-screen">
-                <DashboardLayout name="" level="">
+                <DashboardLayout name={student.nom_complet} level={student.filiere}>
                     <div className="flex h-screen items-center justify-center">
                         <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-[#1D7A85]"></div>
                     </div>
@@ -117,7 +119,7 @@ const UniversityDetail = (props: Props) => {
     if (error || !university) {
         return (
             <div className="min-h-screen">
-                <DashboardLayout name="" level="">
+                <DashboardLayout name={student.nom_complet} level={student.filiere}>
                     <div className="flex h-screen flex-col items-center justify-center px-4 text-center">
                         <img src="/images/Logo.png" alt="Error" className="mb-6 h-24 w-24" />
                         <h2 className="mb-2 text-xl font-bold text-gray-800">Oups! Une erreur s'est produite</h2>
@@ -151,7 +153,7 @@ const UniversityDetail = (props: Props) => {
 
     return (
         <div className="min-h-screen">
-            <DashboardLayout name="" level="">
+            <DashboardLayout name={student.nom_complet} level={student.filiere}>
                 <div className="min-h-screen px-4 py-6 md:p-8 lg:p-10">
                     {/* Header Section with Background and Logo */}
                     <div className="relative mb-6 w-full">

@@ -17,6 +17,7 @@ class CorrespondanceMbtiMetier extends Model
         'niveau_affinite' => 'integer',
     ];
 
+    protected $table = 'correspondances_mbti_metiers'; // <-- Add this line
 
     // Relations Eloquent ^^
 

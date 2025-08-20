@@ -18,6 +18,7 @@ class FavorisRecommandationUniversite extends Model
     ];
 
 
+    protected $table = 'favoris_recommandations_universites';
     // relations
 
     public function student()
@@ -70,7 +71,7 @@ class FavorisRecommandationUniversite extends Model
     }
 
 
-    
+
 
 
 

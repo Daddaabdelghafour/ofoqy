@@ -7,6 +7,8 @@ use App\Models\Universite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
+use Inertia\Inertia;
 
 class UniversitesController extends Controller
 {
@@ -392,5 +394,14 @@ class UniversitesController extends Controller
                 'message' => $e->getMessage()
             ], 500);
         }
+    }
+
+
+    public function favoriteUniversites()
+    {
+        $student = Auth::guard("student")->user();
+        return Inertia::render('Dashboard/FavoriteUniversities', [
+            'student' => $student,
+        ]);
     }
 }

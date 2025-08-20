@@ -7,15 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class TestPersonnalite extends Model
 {
     protected $table = 'tests_personnalite';
-    
+
     protected $fillable = [
         'student_id',
         'type_mbti',
         'resultat_json',
+        'percentages'
     ];
 
     protected $casts = [
-        'resultat_json' => 'array'
+        'resultat_json' => 'array',
+        'percentages' => 'array',
+
     ];
 
 

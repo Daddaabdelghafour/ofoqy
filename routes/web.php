@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FavorisUniversiteController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\MBTIController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\EmailCheckController;
+use App\Http\Controllers\StudentProfileController;
 use App\Http\Controllers\UniversitesController;
 
 
@@ -98,23 +100,30 @@ Route::get('/questions', function () {
 Route::post('/mbti-result', [MBTIController::class, 'store']);
 // University routes (Rest API for data)
 Route::get('/universites', [UniversitesController::class, 'index']);
+Route::get('/favorisuniversités', [UniversitesController::class, 'favoriteUniversites'])->middleware(["auth:student"])->name('dashboard.universities.favorites');
 Route::get('/universites/{id}', [UniversitesController::class, 'show']);
 Route::get('/universites-statistics', [UniversitesController::class, 'statistics']);
 Route::post('/universites/by-bac-type', [UniversitesController::class, 'findByBacType']);
 
 // University routes (To show all universities)
-Route::get('/universités', function () {
-    return Inertia::render('Dashboard/Universities');
+Route::middleware(["auth:student"])->get('/universités', function () {
+    $student = Auth::guard("student")->user();
+    return Inertia::render('Dashboard/Universities', [
+        'student' => $student,
+    ]);
 })->name('dashboard.universities');
 
 // University routes (To show a single university)
-Route::get("/dashboard/universities/{id}", function ($id) {
+Route::middleware(["auth:student"])->get("/dashboard/universities/{id}", function ($id) {
+    $student = Auth::guard("student")->user();
     return Inertia::render("Dashboard/UniversityDetail", [
-        'id' => $id
+        'id' => $id,
+        'student' => $student
     ]);
 })->name('dashboard.universities.show');
 
 Route::get('/universites-export', [UniversitesController::class, 'export'])->name('universites.export');
+
 // Import universities from JSON
 Route::post('/universites-import', [UniversitesController::class, 'import'])->name('universites.import');
 
@@ -124,5 +133,44 @@ Route::get('/import-universities', function () {
 })->name('import.universities');
 
 
-require __DIR__ . '/settings.php';
+// Route de profileDetails
+Route::middleware(["auth:student"])->get("/profileDetails/{id}", function ($id) {
+    return Inertia::render("Dashboard/ProfileDetails", [
+        'id' => $id
+    ]);
+})->name('profileDetails');
+
+
+Route::middleware(["auth:student"])->group(function () {
+    Route::get('/profileDetails', [StudentProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profileDetails', [StudentProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profileDetails/photo', [StudentProfileController::class, 'updateProfilePhoto'])->name('profile.photo.update');
+    Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
+    Route::delete('/account', [ProfileController::class, 'deleteAccount'])->name('account.delete');
+});
+
+// Route pour la page d'aide
+Route::middleware(["auth:student"])->get('/help', function () {
+    return Inertia::render('Dashboard/Aide');
+})->name('help');
+
+Route::middleware(['auth:student'])->get('/PersonnaliteDetails', [MBTIController::class, 'showDetails'])->name('PersonnaliteDetails');
+
+// Route des  favoris des universités
+Route::post('/favorite', [FavorisUniversiteController::class, 'store'])->middleware('auth:student');
+Route::get('/favorite-list', [FavorisUniversiteController::class, 'list'])->name("universites.favorite.list");
+Route::get("/favorite-ids", [FavorisUniversiteController::class, 'favoriteids'])->name("universites.favorite.ids");
+Route::get('/is-favorite/{id}', [FavorisUniversiteController::class, 'isFavorite']);
+
+
+//Route de chatbot
+Route::get('/chatbot', function () {
+    $student = Auth::guard("student")->user();
+    return Inertia::render('Dashboard/Chatbot', [
+        "student" => $student,
+    ]);
+})->name('chatbot');
+
+
+//require __DIR__ . '/settings.php';
 #require __DIR__ . '/auth.php';

@@ -9,7 +9,7 @@ interface DashboardLayoutProps {
 function DashboardLayout({ children, name, level }: DashboardLayoutProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const menu = ['Acceuil', 'Universités', 'Filières et métiers', 'Favorites', 'Postulations'];
+    const menu = ['Acceuil', 'Universités', 'Filières et métiers', 'FavorisUniversités', 'Postulations'];
 
     return (
         <div className="relative flex min-h-full min-w-full justify-start">
@@ -30,7 +30,7 @@ function DashboardLayout({ children, name, level }: DashboardLayoutProps) {
                     }}
                     className="duration-900 flex w-full cursor-pointer flex-col items-center border-l-[8px] border-transparent py-4 transition-all ease-in-out hover:border-white hover:bg-[#ffffff4d]"
                 >
-                    <img className="my-4 w-[70px] rounded-[100%] bg-primary-50" src="/images/SpaceMan.png" alt="User" />
+                    <img className="my-4 w-[70px] rounded-[100%] bg-primary-50" src={'/images/SpaceMan.png'} alt="User" />
                     <span className="mb-1 text-[19px] font-medium text-white">{name}</span>
                     <span className="text-[11px] font-medium text-[#ffffff95]">{level}</span>
                 </div>
