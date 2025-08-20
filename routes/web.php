@@ -13,6 +13,9 @@ use App\Http\Controllers\MBTIController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\EmailCheckController;
 use App\Http\Controllers\UniversitesController;
+use App\Http\Controllers\FilieresMetiersController;
+use App\Http\Controllers\FilieresMetiersComponentController;
+
 
 
 Route::get('/', function () {
@@ -123,6 +126,10 @@ Route::get('/import-universities', function () {
     return Inertia::render('ImportUniversities');
 })->name('import.universities');
 
+Route::get('/dashboard/filieres-metiers', [FilieresMetiersController::class, 'FilieresMetiers'])->name('filieres-metiers');
+// Search route
+Route::post('/filter', [FilieresMetiersController::class, 'searchFilieresMetiers']);
 
+Route::get('/dashboard/filieres-metiers/{id}/{type}', [FilieresMetiersComponentController::class, 'Showcomponent'])->name('filieres-metiers.show');
 require __DIR__ . '/settings.php';
-#require __DIR__ . '/auth.php';
+/*require __DIR__ . '/auth.php';*/

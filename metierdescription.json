@@ -1,0 +1,185 @@
+[
+  {
+    "nom": "Administrateur Réseau",
+    "description": "L’administrateur réseau joue un rôle essentiel dans une organisation en assurant la disponibilité, la performance et la sécurité des infrastructures informatiques. Il est chargé de configurer, surveiller et maintenir les équipements réseau tout en garantissant la continuité des services pour les utilisateurs et en anticipant les problèmes techniques./Gestion des réseaux *Sécurité informatique *Résolution de problèmes *Supervision des systèmes/Bac+3 à Bac+5 en réseaux et télécommunications ou équivalent./Débutant: 8 000 – 12 000 MAD/mois * Expérimenté: 15 000 – 20 000 MAD/mois/Administrateur systèmes et réseaux *Consultant en infrastructures *Ingénieur réseaux *Responsable informatique"
+  },
+  {
+    "nom": "Administrateur Systèmes",
+    "description": "L’administrateur systèmes est responsable de l’installation, de la configuration et de la maintenance des serveurs et systèmes d’exploitation d’une organisation. Il garantit la stabilité, la sécurité et la performance de l’infrastructure informatique tout en assurant la gestion des utilisateurs et des droits d’accès./Administration des serveurs *Sécurité informatique *Virtualisation *Gestion des utilisateurs *Résolution de pannes/Bac+3 à Bac+5 en informatique, systèmes et réseaux./Débutant: 9 000 – 13 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Administrateur systèmes *Ingénieur systèmes *Architecte infrastructure *Responsable informatique"
+  },
+  {
+    "nom": "Analyste Cybersécurité",
+    "description": "L’analyste cybersécurité protège les systèmes et les données sensibles d’une organisation contre les menaces numériques. Il surveille les activités suspectes, détecte les failles de sécurité et propose des solutions pour renforcer la défense informatique face aux cyberattaques./Analyse des risques *Gestion des incidents *Cryptographie *Sécurité réseau *Surveillance en temps réel/Bac+5 en cybersécurité, sécurité des systèmes d’information ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Analyste sécurité *Consultant cybersécurité *Ingénieur sécurité *Responsable sécurité informatique"
+  },
+  {
+    "nom": "Analyste Sécurité Informatique",
+    "description": "L’analyste sécurité informatique veille à la protection des systèmes et infrastructures informatiques. Il évalue les risques, propose des politiques de sécurité et surveille les réseaux pour prévenir toute intrusion ou fuite de données./Sécurité réseau *Audit informatique *Gestion des vulnérabilités *Analyse des menaces/Bac+3 à Bac+5 en informatique, cybersécurité ou équivalent./Débutant: 9 000 – 12 000 MAD/mois * Expérimenté: 15 000 – 22 000 MAD/mois/Analyste sécurité *Auditeur sécurité *Consultant sécurité *Responsable sécurité SI"
+  },
+  {
+    "nom": "Auditeur Interne",
+    "description": "L’auditeur interne contrôle et évalue les processus financiers, opérationnels et informatiques d’une organisation afin d’assurer leur conformité et d’identifier les risques. Il émet des recommandations pour améliorer l’efficacité et la sécurité des activités./Analyse financière *Contrôle interne *Gestion des risques *Communication et synthèse/Bac+5 en audit, finance, comptabilité ou équivalent./Débutant: 7 000 – 10 000 MAD/mois * Expérimenté: 14 000 – 20 000 MAD/mois/Auditeur interne *Auditeur financier *Contrôleur interne *Consultant audit et conformité"
+  },
+  {
+    "nom": "Chargé de Clientèle",
+    "description": "Le chargé de clientèle gère un portefeuille de clients en leur proposant des produits et services adaptés à leurs besoins. Il assure la fidélisation, le suivi et la satisfaction des clients tout en contribuant aux objectifs commerciaux de l’entreprise./Relation client *Techniques de vente *Gestion de portefeuille *Communication/Bac+2 à Bac+5 en commerce, gestion ou équivalent./Débutant: 6 000 – 9 000 MAD/mois * Expérimenté: 12 000 – 18 000 MAD/mois/Conseiller commercial *Responsable clientèle *Gestionnaire de comptes"
+  },
+  {
+    "nom": "Chef de Chantier",
+    "description": "Le chef de chantier supervise et coordonne les travaux de construction sur site. Il organise les équipes, contrôle la qualité des réalisations, veille au respect des délais et des règles de sécurité, et rend compte à la direction du projet./Gestion de chantier *Lecture de plans *Management d’équipe *Normes de sécurité/Bac+2 à Bac+5 en génie civil, BTP ou équivalent./Débutant: 8 000 – 12 000 MAD/mois * Expérimenté: 15 000 – 22 000 MAD/mois/Conducteur de travaux *Ingénieur travaux *Responsable de chantier"
+  },
+  {
+    "nom": "Chef de Projet Mécanique",
+    "description": "Le chef de projet mécanique dirige le développement et la réalisation de projets liés à la conception et à la fabrication de systèmes mécaniques. Il planifie les étapes, coordonne les équipes et s’assure du respect des coûts, des délais et de la qualité./Conception mécanique *Gestion de projet *Logiciels CAO *Organisation et planification/Bac+5 en génie mécanique ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Ingénieur conception *Chef de projet industriel *Consultant mécanique"
+  },
+  {
+    "nom": "Consultant en Organisation Industrielle",
+    "description": "Le consultant en organisation industrielle aide les entreprises à optimiser leurs processus de production et à améliorer leur performance globale. Il analyse les méthodes de travail, propose des solutions innovantes et accompagne leur mise en œuvre./Analyse organisationnelle *Lean management *Gestion de projet *Optimisation des processus/Bac+5 en génie industriel, organisation ou équivalent./Débutant: 12 000 – 16 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Consultant lean *Consultant amélioration continue *Chef de projet organisation"
+  },
+  {
+    "nom": "Consultant en Production",
+    "description": "Le consultant en production accompagne les entreprises dans l’optimisation de leurs processus de fabrication. Il identifie les points faibles, propose des améliorations et met en place des outils de suivi de performance pour accroître la productivité./Gestion de production *Analyse des processus *Optimisation industrielle *Management opérationnel/Bac+5 en génie industriel, production ou équivalent./Débutant: 11 000 – 15 000 MAD/mois * Expérimenté: 18 000 – 24 000 MAD/mois/Consultant industrialisation *Chef de projet production *Responsable méthodes"
+  },
+  
+  {
+    "nom": "Consultant en Sécurité Informatique",
+    "description": "Le consultant en sécurité informatique conseille les entreprises sur la protection de leurs systèmes d’information. Il réalise des audits, identifie les vulnérabilités et propose des solutions pour renforcer la sécurité face aux menaces numériques./Audit de sécurité *Analyse des risques *Protection des données *Conformité réglementaire/Bac+5 en cybersécurité, informatique ou équivalent./Débutant: 12 000 – 16 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Consultant cybersécurité *Ingénieur sécurité *Responsable sécurité informatique"
+  },
+  {
+    "nom": "Consultant Lean Management",
+    "description": "Le consultant en lean management accompagne les organisations dans l’amélioration de leurs performances à travers l’optimisation des processus et la réduction des gaspillages. Il forme les équipes et met en place des outils adaptés./Lean management *Amélioration continue *Analyse de processus *Gestion de projet/Bac+5 en génie industriel, management ou équivalent./Débutant: 11 000 – 15 000 MAD/mois * Expérimenté: 18 000 – 24 000 MAD/mois/Consultant amélioration continue *Chef de projet organisation *Responsable performance"
+  },
+  {
+    "nom": "Consultant Lean Manufacturing",
+    "description": "Le consultant lean manufacturing aide les entreprises industrielles à améliorer leurs chaînes de production en appliquant les principes du lean. Il réduit les coûts, améliore la qualité et optimise les délais de fabrication./Optimisation industrielle *Lean manufacturing *Analyse de production *Management opérationnel/Bac+5 en génie industriel, production ou équivalent./Débutant: 12 000 – 16 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Consultant production *Consultant amélioration continue *Responsable méthodes"
+  },
+  {
+    "nom": "Consultant Logistique",
+    "description": "Le consultant logistique accompagne les entreprises dans la gestion et l’optimisation de leurs flux logistiques. Il propose des solutions pour améliorer la chaîne d’approvisionnement, réduire les coûts et garantir la satisfaction client./Gestion des flux *Supply chain *Analyse de données *Optimisation logistique/Bac+5 en logistique, supply chain ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Consultant supply chain *Responsable logistique *Chef de projet logistique"
+  },
+  {
+    "nom": "Consultant Process Industriel",
+    "description": "Le consultant process industriel analyse et optimise les procédés de fabrication d’une entreprise. Il identifie les inefficacités, propose des améliorations et accompagne la mise en place de nouvelles méthodes de production./Analyse des procédés *Optimisation industrielle *Gestion de projet *Contrôle qualité/Bac+5 en génie industriel, procédés ou équivalent./Débutant: 11 000 – 15 000 MAD/mois * Expérimenté: 18 000 – 24 000 MAD/mois/Consultant production *Ingénieur procédés *Chef de projet industrialisation"
+  },
+  {
+    "nom": "Consultant Qualité",
+    "description": "Le consultant qualité aide les entreprises à améliorer leurs systèmes de management de la qualité. Il réalise des audits, propose des actions correctives et accompagne les équipes dans la mise en place de normes et certifications./Management de la qualité *Normes ISO *Audit qualité *Amélioration continue/Bac+5 en qualité, génie industriel ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Consultant qualité *Auditeur qualité *Responsable qualité"
+  },
+  {
+    "nom": "Consultant Supply Chain",
+    "description": "Le consultant supply chain conseille les entreprises dans l’organisation et l’optimisation de leurs chaînes d’approvisionnement. Il identifie les axes d’amélioration, met en place des outils de gestion et contribue à la réduction des coûts logistiques./Gestion des flux *Planification *Optimisation des stocks *Analyse de données/Bac+5 en supply chain, logistique ou équivalent./Débutant: 11 000 – 15 000 MAD/mois * Expérimenté: 18 000 – 24 000 MAD/mois/Consultant logistique *Responsable supply chain *Chef de projet logistique"
+  },
+  {
+    "nom": "Contrôleur de Gestion",
+    "description": "Le contrôleur de gestion suit et analyse la performance financière et opérationnelle d’une entreprise. Il établit des budgets, contrôle les écarts et fournit des recommandations pour optimiser la rentabilité et l’efficacité./Analyse financière *Contrôle budgétaire *Tableaux de bord *Gestion des coûts/Bac+5 en finance, contrôle de gestion ou équivalent./Débutant: 8 000 – 12 000 MAD/mois * Expérimenté: 14 000 – 20 000 MAD/mois/Contrôleur financier *Auditeur interne *Responsable contrôle de gestion"
+  },
+  {
+    "nom": "Développeur Back-End",
+    "description": "Le développeur back-end conçoit et maintient la partie serveur des applications web. Il développe les fonctionnalités, gère les bases de données et assure la sécurité ainsi que la performance des systèmes./Programmation *Bases de données *APIs *Sécurité informatique/Bac+3 à Bac+5 en informatique, développement logiciel ou équivalent./Débutant: 8 000 – 12 000 MAD/mois * Expérimenté: 14 000 – 20 000 MAD/mois/Développeur web *Développeur full stack *Ingénieur logiciel"
+  },
+  {
+    "nom": "Développeur d’Applications",
+    "description": "Le développeur d’applications crée, teste et maintient des logiciels adaptés aux besoins des utilisateurs. Il participe à toutes les étapes du cycle de développement et travaille souvent en collaboration avec des équipes multidisciplinaires./Programmation *Conception logicielle *Tests et débogage *Analyse des besoins/Bac+3 à Bac+5 en informatique, développement logiciel ou équivalent./Débutant: 7 000 – 11 000 MAD/mois * Expérimenté: 13 000 – 18 000 MAD/mois/Développeur logiciel *Développeur mobile *Ingénieur développement"
+  },
+  {
+    "nom": "Développeur Front-End",
+    "description": "Le développeur front-end conçoit et optimise l’interface des applications web pour offrir une expérience utilisateur fluide et intuitive. Il travaille sur l’ergonomie, le design et la compatibilité multi-navigateurs./HTML *CSS *JavaScript *Frameworks front-end *UX/UI/Bac+3 à Bac+5 en informatique, développement web ou équivalent./Débutant: 7 000 – 11 000 MAD/mois * Expérimenté: 13 000 – 18 000 MAD/mois/Développeur web *Développeur full stack *Intégrateur web"
+  },
+  {
+    "nom": "Développeur Full Stack",
+    "description": "Le développeur full stack maîtrise à la fois le développement front-end et back-end. Il est capable de concevoir une application complète, de la base de données à l’interface utilisateur, tout en assurant la performance et la sécurité./Front-end *Back-end *Bases de données *APIs *Architecture logicielle/Bac+3 à Bac+5 en informatique, développement logiciel ou équivalent./Débutant: 8 000 – 12 000 MAD/mois * Expérimenté: 14 000 – 20 000 MAD/mois/Développeur web *Ingénieur logiciel *Architecte applicatif"
+  },
+  {
+    "nom": "Développeur Logiciel",
+    "description": "Le développeur logiciel conçoit, développe et maintient des programmes informatiques selon les besoins des utilisateurs ou des entreprises. Il teste, documente et optimise les applications pour assurer leur bon fonctionnement./Programmation *Conception logicielle *Tests et débogage *Documentation *Maintenance/Bac+3 à Bac+5 en informatique, génie logiciel ou équivalent./Débutant: 7 000 – 11 000 MAD/mois * Expérimenté: 13 000 – 18 000 MAD/mois/Développeur d’applications *Ingénieur logiciel *Analyste développeur"
+  },
+  {
+    "nom": "Développeur Mobile",
+    "description": "Le développeur mobile conçoit et développe des applications pour smartphones et tablettes, en s’assurant de leur compatibilité avec différents systèmes d’exploitation et de leur performance sur tous types d’appareils./Programmation mobile *UX/UI mobile *Tests et débogage *Gestion des performances/Bac+3 à Bac+5 en informatique, développement mobile ou équivalent./Débutant: 7 000 – 11 000 MAD/mois * Expérimenté: 13 000 – 18 000 MAD/mois/Développeur d’applications *Ingénieur logiciel *Développeur Android/iOS"
+  },
+  {
+    "nom": "Développeur Web",
+    "description": "Le développeur web conçoit, réalise et maintient des sites et applications web. Il assure la liaison entre le design et la partie technique, en optimisant l’expérience utilisateur et la performance des sites./HTML *CSS *JavaScript *Bases de données *Frameworks web/Bac+3 à Bac+5 en informatique, développement web ou équivalent./Débutant: 7 000 – 11 000 MAD/mois * Expérimenté: 13 000 – 18 000 MAD/mois/Développeur front-end *Développeur full stack *Intégrateur web"
+  },
+  {
+    "nom": "Ingénieur Automatisation",
+    "description": "L’ingénieur automatisation conçoit et met en place des systèmes automatisés pour améliorer l’efficacité des processus industriels. Il développe des solutions techniques, contrôle leur performance et veille à la sécurité des installations./Automatisation des processus *Programmation industrielle *Supervision des systèmes *Maintenance préventive/Bac+5 en génie industriel, automatisme ou équivalent./Débutant: 12 000 – 16 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Ingénieur procédés *Chef de projet automatisation *Consultant industriel"
+  },
+  {
+    "nom": "Ingénieur Cloud",
+    "description": "L’ingénieur cloud conçoit, déploie et maintient des infrastructures cloud pour les entreprises. Il gère la performance, la sécurité et la scalabilité des services hébergés sur le cloud, tout en assurant leur disponibilité./Infrastructure cloud *Sécurité informatique *Virtualisation *Gestion des ressources *Automatisation/Bac+5 en informatique, cloud computing ou équivalent./Débutant: 12 000 – 16 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Administrateur cloud *Ingénieur DevOps *Architecte cloud"
+  },
+  {
+    "nom": "Ingénieur Conception",
+    "description": "L’ingénieur conception développe des solutions techniques et conçoit des produits ou systèmes selon les besoins des clients ou des projets industriels. Il participe à la phase de design, aux tests et à l’optimisation des prototypes./Conception technique *CAO/DAO *Tests et validation *Optimisation des produits/Bac+5 en génie mécanique, industriel ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Ingénieur mécanique *Chef de projet conception *Consultant technique"
+  },
+  {
+    "nom": "Ingénieur Cybersécurité",
+    "description": "L’ingénieur cybersécurité protège les systèmes d’information contre les attaques et les intrusions. Il conçoit des architectures sécurisées, met en place des outils de protection et réalise des tests de vulnérabilité pour anticiper les risques./Sécurité réseau *Cryptographie *Audit de sécurité *Gestion des incidents *Analyse de risques/Bac+5 en cybersécurité, sécurité informatique ou équivalent./Débutant: 12 000 – 16 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Consultant cybersécurité *Analyste sécurité *Responsable sécurité SI"
+  },
+  {
+    "nom": "Ingénieur Data",
+    "description": "L’ingénieur data collecte, organise et analyse des données pour permettre aux entreprises de prendre des décisions stratégiques. Il conçoit des pipelines de données, optimise le stockage et assure la qualité et la sécurité des informations./Gestion de données *Bases de données *Analyse statistique *Data pipelines *Sécurité des données/Bac+5 en informatique, data science ou équivalent./Débutant: 10 000 – 15 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Analyste data *Data scientist *Consultant data"
+  },
+  {
+    "nom": "Ingénieur DevOps",
+    "description": "L’ingénieur DevOps coordonne le développement et les opérations pour améliorer la livraison des applications. Il automatise les processus, surveille les performances et assure la disponibilité et la sécurité des systèmes./Automatisation *CI/CD *Gestion des serveurs *Surveillance des systèmes *Sécurité/Bac+5 en informatique, génie logiciel ou équivalent./Débutant: 12 000 – 16 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Ingénieur cloud *Développeur back-end *Architecte DevOps"
+  },
+  {
+    "nom": "Ingénieur Électricien",
+    "description": "L’ingénieur électricien conçoit, supervise et optimise les installations électriques dans les bâtiments ou les industries. Il s’assure du respect des normes de sécurité et de la performance énergétique des systèmes./Conception électrique *Maintenance *Normes de sécurité *Gestion de projets/Bac+5 en génie électrique ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Ingénieur électrotechnique *Chef de projet électrique *Consultant technique"
+  },
+  {
+    "nom": "Ingénieur Logistique",
+    "description": "L’ingénieur logistique planifie et optimise les flux de production et de distribution. Il analyse les chaînes d’approvisionnement, propose des solutions pour réduire les coûts et améliorer l’efficacité./Supply chain *Gestion des stocks *Planification *Analyse de performance/Bac+5 en logistique, supply chain ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Consultant logistique *Responsable supply chain *Chef de projet logistique"
+  },
+  {
+    "nom": "Ingénieur Maintenance",
+    "description": "L’ingénieur maintenance supervise les opérations de maintenance préventive et corrective des équipements industriels. Il analyse les pannes, planifie les interventions et veille à la fiabilité des installations./Maintenance industrielle *Gestion des équipements *Analyse des pannes *Planification des interventions/Bac+5 en génie mécanique, industriel ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Responsable maintenance *Ingénieur fiabilité *Technicien senior maintenance"
+  },
+  {
+    "nom": "Ingénieur Méthodes",
+    "description": "L’ingénieur méthodes optimise les processus de production pour améliorer la qualité, la productivité et la rentabilité. Il analyse les flux, met en place des standards et propose des outils pour standardiser le travail./Analyse des processus *Amélioration continue *Gestion de la production *Optimisation/Bac+5 en génie industriel ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Ingénieur process *Consultant industrialisation *Chef de projet production"
+  },
+  {
+    "nom": "Ingénieur Planification",
+    "description": "L’ingénieur planification organise et coordonne les activités de production ou de projet pour respecter les délais et les ressources disponibles. Il établit des plannings et suit les indicateurs de performance./Planification de projets *Gestion des ressources *Suivi des indicateurs *Coordination d’équipes/Bac+5 en génie industriel, gestion de production ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Responsable planification *Chef de projet *Consultant organisation"
+  },
+  {
+    "nom": "Ingénieur Procédés",
+    "description": "L’ingénieur procédés conçoit et optimise les procédés industriels pour améliorer l’efficacité, la qualité et la sécurité des productions. Il travaille sur les flux de matières, l’énergie et la productivité./Optimisation des procédés *Analyse technique *Contrôle qualité *Gestion de production/Bac+5 en génie industriel, procédés ou équivalent./Débutant: 11 000 – 15 000 MAD/mois * Expérimenté: 18 000 – 24 000 MAD/mois/Consultant procédés *Chef de projet production *Ingénieur industrialisation"
+  },
+  {
+    "nom": "Ingénieur Production",
+    "description": "L’ingénieur production supervise l’ensemble du processus de fabrication, de la planification à la livraison. Il veille à la qualité, aux délais et à l’optimisation des ressources tout en coordonnant les équipes de production./Gestion de production *Planification *Optimisation des ressources *Qualité/Bac+5 en génie industriel ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Responsable production *Chef de projet industriel *Consultant industrialisation"
+  },
+  {
+    "nom": "Ingénieur Production Industrielle",
+    "description": "L’ingénieur production industrielle est chargé d’améliorer la performance des unités de production. Il met en place des outils et méthodes pour augmenter la productivité, réduire les coûts et garantir la qualité des produits./Optimisation industrielle *Gestion de production *Qualité *Amélioration continue/Bac+5 en génie industriel ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Responsable production *Ingénieur méthodes *Consultant industrialisation"
+  },
+  {
+    "nom": "Ingénieur Qualité",
+    "description": "L’ingénieur qualité définit et contrôle les normes et standards de qualité dans les entreprises industrielles. Il réalise des audits, suit les indicateurs qualité et met en place des actions correctives si nécessaire./Contrôle qualité *Normes ISO *Audit qualité *Amélioration continue/Bac+5 en génie industriel, qualité ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Responsable qualité *Consultant qualité *Auditeur qualité"
+  },
+  {
+    "nom": "Ingénieur Réseaux",
+    "description": "L’ingénieur réseaux conçoit, déploie et maintient les infrastructures réseau. Il assure la connectivité, la performance et la sécurité des systèmes de communication et supervise les équipements réseau./Configuration réseau *Sécurité informatique *Gestion des serveurs *Surveillance des systèmes/Bac+5 en réseaux et télécommunications ou équivalent./Débutant: 8 000 – 12 000 MAD/mois * Expérimenté: 15 000 – 20 000 MAD/mois/Administrateur réseaux *Consultant infrastructure *Ingénieur systèmes"
+  },
+  {
+    "nom": "Ingénieur Sécurité Informatique",
+    "description": "L’ingénieur sécurité informatique protège les systèmes d’information contre les cyberattaques. Il met en place des politiques de sécurité, des audits et des outils de surveillance pour prévenir les intrusions et garantir la confidentialité des données./Sécurité réseau *Audit de sécurité *Cryptographie *Gestion des incidents/Bac+5 en cybersécurité ou informatique/ Débutant: 12 000 – 16 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Consultant cybersécurité *Analyste sécurité *Responsable sécurité SI"
+  },
+  {
+    "nom": "Ingénieur Structure",
+    "description": "L’ingénieur structure conçoit et analyse les structures des bâtiments ou infrastructures pour garantir leur solidité et leur sécurité. Il travaille sur les matériaux, les calculs de charge et les normes de construction./Calcul de structures *Conception technique *Normes de sécurité *Analyse des matériaux/Bac+5 en génie civil ou équivalent./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Ingénieur civil *Chef de projet construction *Consultant technique"
+  },
+  {
+    "nom": "Ingénieur Supply Chain",
+    "description": "L’ingénieur supply chain optimise l’ensemble de la chaîne d’approvisionnement, de la production à la distribution. Il analyse les flux, planifie les ressources et propose des solutions pour réduire les coûts et améliorer l’efficacité./Supply chain *Gestion des stocks *Planification *Optimisation des flux/Bac+5 en logistique ou supply chain./Débutant: 10 000 – 14 000 MAD/mois * Expérimenté: 16 000 – 22 000 MAD/mois/Consultant logistique *Responsable supply chain *Chef de projet logistique"
+  },
+  {
+    "nom": "Responsable Commercial",
+    "description": "Le responsable commercial définit et met en œuvre la stratégie commerciale de l’entreprise. Il manage l’équipe commerciale, suit les performances et développe le portefeuille clients pour atteindre les objectifs de vente./Stratégie commerciale *Gestion d’équipe *Suivi des performances *Relation client/Bac+5 en commerce, gestion ou équivalent./Débutant: 12 000 – 16 000 MAD/mois * Expérimenté: 18 000 – 25 000 MAD/mois/Chef de vente *Directeur commercial *Consultant commercial"
+  }
+
+
+]

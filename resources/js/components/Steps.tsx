@@ -192,7 +192,7 @@ export default function Steps({
           >
             <option value="">-- Sélectionnez votre filière --</option>
             <option value="Sciences mathématiques">Sciences Mathématiques</option>
-            <option value="Sciences physiquw">Sciences physiques</option>
+            <option value="Sciences physique">Sciences physiques</option>
             <option value="Sciences Techniques">Sciences Techniques</option>
             <option value="Sciences Économiques">Sciences Économiques</option>
             <option value="Sciences de vie">Sciences de vie</option>

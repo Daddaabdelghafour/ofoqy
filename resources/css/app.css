@@ -59,13 +59,25 @@
   after:bg-primary-1000 after:transition-all after:duration-300
   hover:after:w-full hover:text-primary-1000 hover:font-medium ;
   }
+  
 
   /* Focus styles 
   *:focus {
     @apply outline-none ring-2 ring-primary-500 ring-offset-2;
   }*/
 }
-
+@layer base {
+  /* Your existing base styles... */
+  
+  /* Add these lines */
+  select {
+    @apply bg-white border border-gray-300 rounded p-2 cursor-pointer;
+  }
+  
+  select option {
+    @apply bg-white text-[#5B5B5B] p-1 ;
+  }
+}
 @layer components {
   /* Button components */
   .btn {

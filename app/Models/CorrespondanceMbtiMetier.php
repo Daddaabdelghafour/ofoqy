@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CorrespondanceMbtiMetier extends Model
 {
+    protected $table = 'correspondances_mbti_metiers';
     protected $fillable = [
         'type_mbti',
         'metier_id',

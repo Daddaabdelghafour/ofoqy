@@ -9,7 +9,13 @@ interface DashboardLayoutProps {
 function DashboardLayout({ children, name, level }: DashboardLayoutProps) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const menu = ['Acceuil', 'Universités', 'Filières et métiers', 'Favorites', 'Postulations'];
+    const menu = [
+        { name: 'Acceuil', link: '/acceuil' },
+        { name: 'Universités', link: '/dashboard/universities' },
+        { name: 'Filières et métiers', link: '/dashboard/filieres-metiers' },
+        { name: 'Favorites', link: '/dashboard/favorites' },
+        { name: 'Postulations', link: '/dashboard/postulations' }
+    ];
 
     return (
         <div className="relative flex min-h-full min-w-full justify-start">
@@ -39,12 +45,12 @@ function DashboardLayout({ children, name, level }: DashboardLayoutProps) {
                         <div
                             key={index}
                             onClick={() => {
-                                window.location.href = `/${item.toLowerCase()}`;
+                                window.location.href = `${item.link}`;
                             }}
                             className="align-center duration-900 my-3 ml-20 flex h-[50px] w-full cursor-pointer border-l-[5px] border-transparent pl-5 pt-3 transition-all ease-in-out hover:border-white hover:bg-[#ffffff4d]"
                         >
-                            <img className="mx-5 h-[20px] w-[20px]" src={'/images/menu' + index + '.png'} alt={item} />
-                            <span className="whitespace-nowrap text-[15px] font-medium text-white">{item}</span>
+                            <img className="mx-5 h-[20px] w-[20px]" src={'/images/menu' + index + '.png'} alt={item.name} />
+                            <span className="whitespace-nowrap text-[15px] font-medium text-white">{item.name}</span>
                         </div>
                     ))}
                 </div>

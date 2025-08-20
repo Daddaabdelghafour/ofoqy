@@ -1,0 +1,70 @@
+[
+  {
+    "nom": "Audit et Contrôle de Gestion",
+    "description": "La filière Audit et Contrôle de Gestion forme des professionnels spécialisés dans l’évaluation et l’optimisation des performances financières et opérationnelles d’une organisation. Elle met l’accent sur les techniques d’audit interne et externe, le contrôle budgétaire, la maîtrise des risques et l’élaboration de tableaux de bord pour soutenir la gouvernance d’entreprise. Les diplômés sont capables de garantir la fiabilité des informations comptables et financières, tout en proposant des stratégies d’amélioration continue pour accroître la performance globale de l’entreprise."
+  },
+  {
+    "nom": "Commerce",
+    "description": "La filière Commerce prépare les étudiants à maîtriser les fondamentaux des échanges commerciaux, des techniques de vente et de la gestion de la relation client. Elle aborde les principes du marketing, de la négociation et du management commercial, en intégrant les nouvelles tendances liées au digital et au e-commerce. Les diplômés sont formés à comprendre le comportement des consommateurs, à développer des stratégies de conquête et de fidélisation, et à gérer efficacement les réseaux de distribution dans un environnement compétitif."
+  },
+  {
+    "nom": "Commerce International",
+    "description": "La spécialité Commerce International met l’accent sur la gestion des échanges commerciaux à l’échelle mondiale. Elle inclut l’étude des marchés étrangers, la logistique internationale, la gestion des opérations douanières, ainsi que les aspects financiers et juridiques liés aux transactions transfrontalières. Les étudiants acquièrent une vision multiculturelle et stratégique leur permettant de s’adapter aux défis de la mondialisation et de travailler dans des environnements complexes et concurrentiels."
+  },
+  {
+    "nom": "Génie Civil",
+    "description": "La filière Génie Civil concerne la conception, la planification, la construction et l’entretien des infrastructures telles que les bâtiments, les ponts, les routes, les barrages et les réseaux d’eau. Elle combine des compétences scientifiques et techniques en mécanique, matériaux et structures, avec une approche de gestion de projets et de durabilité. Les ingénieurs civils jouent un rôle crucial dans le développement des infrastructures modernes et contribuent à améliorer la qualité de vie des populations."
+  },
+  {
+    "nom": "Génie des Procédés",
+    "description": "Le Génie des Procédés est une discipline qui s’intéresse à la conception, l’optimisation et le pilotage des procédés industriels. Elle couvre les domaines de la chimie, de la physique et de l’ingénierie afin de transformer efficacement les matières premières en produits finis. Les étudiants apprennent à concevoir des procédés respectueux de l’environnement, à améliorer le rendement des installations industrielles et à garantir la qualité des produits dans divers secteurs tels que l’agroalimentaire, la pétrochimie ou la pharmaceutique."
+  },
+  {
+    "nom": "Génie des Procédés de l'Énergie et de l'Environnement",
+    "description": "Cette filière forme des ingénieurs spécialisés dans la gestion durable de l’énergie et de l’environnement à travers les procédés industriels. Elle aborde les énergies renouvelables, la valorisation des déchets, le traitement des effluents et la réduction des impacts environnementaux. Les diplômés sont capables de concevoir des solutions innovantes pour répondre aux enjeux énergétiques et écologiques, en conciliant performance industrielle, efficacité énergétique et respect des normes environnementales."
+  },
+  {
+    "nom": "Génie Électrique",
+    "description": "La filière Génie Électrique couvre l’étude, la conception et la mise en œuvre de systèmes électriques et électroniques. Elle englobe la production, le transport et la distribution de l’électricité, ainsi que les automatismes, l’électronique de puissance et les systèmes embarqués. Les étudiants développent des compétences en conception de circuits, en maintenance d’installations électriques et en intégration de nouvelles technologies, notamment dans les domaines des énergies renouvelables et des réseaux intelligents (smart grids)."
+  },
+  {
+    "nom": "Génie Industriel",
+    "description": "Le Génie Industriel vise à optimiser l’organisation et la performance des systèmes de production et de gestion. Il associe des compétences en gestion de la qualité, en logistique, en productivité et en amélioration continue des processus. Cette filière permet aux étudiants d’acquérir une vision globale des flux industriels et des systèmes de management, afin de réduire les coûts, d’améliorer la qualité et de maximiser la satisfaction des clients. Les ingénieurs industriels interviennent dans de nombreux secteurs, de l’automobile à l’aéronautique en passant par la logistique et les services."
+  },
+  {
+    "nom": "Génie Informatique",
+    "description": "La filière Génie Informatique forme des spécialistes capables de concevoir, développer et gérer des systèmes et applications informatiques. Elle couvre un large éventail de compétences incluant la programmation, l’architecture des systèmes, les bases de données, la cybersécurité, l’intelligence artificielle et le développement web. Les diplômés sont en mesure de répondre aux besoins des entreprises en matière de transformation numérique, de gestion des systèmes d’information et d’innovation technologique."
+  },
+  {
+    "nom": "Génie Mécanique",
+    "description": "La filière Génie Mécanique s’intéresse à la conception, à la fabrication et à la maintenance des systèmes mécaniques et des machines. Elle combine la modélisation numérique, l’ingénierie des matériaux, la dynamique des structures et la simulation industrielle. Les étudiants acquièrent des compétences leur permettant de travailler dans des secteurs tels que l’automobile, l’aéronautique, la robotique ou encore l’énergie, en contribuant au développement de solutions innovantes et performantes."
+  },
+  {
+    "nom": "Génie Réseaux et Télécommunications",
+    "description": "La filière Génie Réseaux et Télécommunications forme des ingénieurs capables de concevoir, d’installer et de maintenir des infrastructures de communication modernes. Elle couvre des thématiques variées telles que les réseaux informatiques, les systèmes de transmission, la cybersécurité, la 5G, l’Internet des Objets (IoT) et le cloud computing. Les diplômés développent des compétences techniques et pratiques leur permettant d’accompagner la transformation numérique et de contribuer au développement des technologies de l’information et de la communication."
+  },
+  {
+    "nom": "Gestion",
+    "description": "La filière Gestion initie les étudiants aux principes fondamentaux du management, de la comptabilité, de la finance et de la prise de décision stratégique. Elle prépare à la compréhension des mécanismes organisationnels, à l’optimisation des ressources humaines et financières, ainsi qu’à la maîtrise des outils de pilotage des performances. Les diplômés peuvent évoluer dans divers secteurs et occuper des postes de responsabilité dans les entreprises, les administrations et les organisations internationales."
+  },
+  {
+    "nom": "Gestion Financière et Comptable",
+    "description": "Cette spécialité est axée sur la maîtrise des techniques de comptabilité, d’analyse financière et de gestion budgétaire. Les étudiants y apprennent à évaluer la santé financière des organisations, à élaborer des plans financiers, à optimiser les investissements et à assurer la conformité aux normes comptables et fiscales. Les diplômés de cette filière jouent un rôle clé dans la prise de décision stratégique et la pérennité financière des entreprises."
+  },
+  {
+    "nom": "Management des Ressources Humaines",
+    "description": "La filière Management des Ressources Humaines prépare les étudiants à gérer le capital humain des organisations. Elle aborde des thématiques telles que le recrutement, la formation, la gestion des carrières, la motivation et les relations sociales. Les étudiants acquièrent des compétences en communication, en négociation et en pilotage des talents, leur permettant d’accompagner le développement organisationnel tout en favorisant le bien-être et l’engagement des collaborateurs."
+  },
+  {
+    "nom": "Marketing et Action Commerciale",
+    "description": "La filière Marketing et Action Commerciale forme des professionnels capables de concevoir et de mettre en œuvre des stratégies marketing adaptées aux besoins du marché. Elle couvre l’étude du comportement des consommateurs, l’analyse de la concurrence, la communication commerciale, la publicité et le développement des ventes. Les étudiants apprennent à utiliser les outils numériques, les études de marché et les techniques de branding pour renforcer la compétitivité des entreprises et améliorer leur image."
+  },
+  {
+    "nom": "Publicité et Communication",
+    "description": "Cette filière se concentre sur la création et la gestion de campagnes publicitaires ainsi que sur la communication interne et externe des organisations. Elle associe créativité, stratégie et maîtrise des médias traditionnels et numériques. Les étudiants développent des compétences en conception visuelle, storytelling, marketing digital et relations publiques, leur permettant de contribuer efficacement au positionnement et à la notoriété des entreprises, des institutions ou des marques."
+  },
+  {
+    "nom": "Sciences de Gestion",
+    "description": "La filière Sciences de Gestion offre une formation pluridisciplinaire qui couvre la finance, le marketing, la comptabilité, le management et la stratégie. Elle permet de comprendre les enjeux économiques et organisationnels et d’acquérir une vision globale des mécanismes de gestion des entreprises. Les diplômés développent des capacités analytiques et décisionnelles qui les préparent à occuper des postes variés dans la direction et le pilotage d’organisations, que ce soit dans le secteur public ou privé."
+  }
+]
