@@ -22,6 +22,8 @@ class Student extends Authenticatable
         'filiere',
         'langue_bac',
         'moyenne_general_bac',
+        'profile_photo_path',
+
     ];
 
     protected $hidden = [
