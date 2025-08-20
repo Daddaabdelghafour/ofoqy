@@ -38,7 +38,7 @@ function DashboardLayout({ children, name, level, profile_picture_path }: Dashbo
                     className="duration-900 flex w-full cursor-pointer flex-col items-center border-l-[8px] border-transparent py-4 transition-all ease-in-out hover:border-white hover:bg-[#ffffff4d]"
                 >
                     <img
-                        className="my-4 w-[70px] rounded-[100%] bg-primary-50"
+                        className="my-4 max-h-[70px] w-[70px] rounded-[100%] bg-primary-50"
                         src={profile_picture_path ? '/' + profile_picture_path : '/images/SpaceMan.png'}
                         alt="User"
                     />

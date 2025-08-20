@@ -58,7 +58,7 @@ const FavoriteUniversities: React.FC<UniversitiesProps> = ({ student }) => {
                     </div>
                 ) : (
                     <>
-                        <div className="rounded-lg bg-white p-[80px] shadow-sm">
+                        <div className="rounded-lg bg-white p-6 shadow-sm">
                             {favorites.length > 0 ? (
                                 <div className="grid grid-cols-3 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
                                     {favorites.map((university) => (
