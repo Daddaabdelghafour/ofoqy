@@ -103,13 +103,13 @@ Route::get('/questions', function () {
 Route::post('/mbti-result', [MBTIController::class, 'store']);
 // University routes (Rest API for data)
 Route::get('/universites', [UniversitesController::class, 'index']);
-Route::get('/favorisuniversités', [UniversitesController::class, 'favoriteUniversites'])->middleware(["auth:student"])->name('dashboard.universities.favorites');
+Route::get('/dashboard/favorites', [UniversitesController::class, 'favoriteUniversites'])->middleware(["auth:student"])->name('dashboard.universities.favorites');
 Route::get('/universites/{id}', [UniversitesController::class, 'show']);
 Route::get('/universites-statistics', [UniversitesController::class, 'statistics']);
 Route::post('/universites/by-bac-type', [UniversitesController::class, 'findByBacType']);
 
 // University routes (To show all universities)
-Route::middleware(["auth:student"])->get('/universités', function () {
+Route::middleware(["auth:student"])->get('/dashboard/universities', function () {
     $student = Auth::guard("student")->user();
     return Inertia::render('Dashboard/Universities', [
         'student' => $student,

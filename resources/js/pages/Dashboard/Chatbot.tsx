@@ -32,7 +32,7 @@ const Chatbot = ({ student }) => {
     const [showLast7, setShowLast7] = useState(true);
 
     return (
-        <DashboardLayout name="Abdelghafour" level="Sciences Physiques">
+        <DashboardLayout profile_picture_path={student.profile_photo_path} name="Abdelghafour" level="Sciences Physiques">
             <div className="flex min-h-screen w-full">
                 {/* Left side: History */}
                 <div className="w-[320px] border-r border-gray-200 bg-white p-4">

@@ -151,7 +151,7 @@ const ProfileDetails: React.FC<Props> = ({ student }) => {
     };
 
     return (
-        <DashboardLayout name="" level="">
+        <DashboardLayout profile_picture_path={student.profile_photo_path || ''} name={student.nom_complet} level={student.filiere}>
             {success && <Notification notification={{ title: 'Succès', show: true, type: 'success', message: 'Profil mis à jour avec succès' }} />}
             {imageUploading && (
                 <Notification

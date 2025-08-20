@@ -91,7 +91,7 @@ const PersonnaliteDetails = ({ student, mbtiResult, shortName, metiers }: Person
               { letter: 'L', percent: 60 },
           ];
     return (
-        <DashboardLayout name={student.nom_complet} level={student.filiere}>
+        <DashboardLayout profile_picture_path={student.profile_photo_path || ''} name={student.nom_complet} level={student.filiere}>
             <div className="flex min-h-screen w-[1200px] flex-col items-start gap-5">
                 {/* Informations de l'étudiant + button 'commencer le test' */}
                 <div className="flex w-full items-center justify-between p-10">

@@ -49,9 +49,9 @@ const FavoriteUniversities: React.FC<UniversitiesProps> = ({ student }) => {
     };
 
     return (
-        <DashboardLayout name={student.nom_complet} level={student.filiere}>
+        <DashboardLayout profile_picture_path={student.profile_photo_path || ''} name={student.nom_complet} level={student.filiere}>
             <div className="min-h-screen w-full px-3 sm:px-4 md:px-6">
-                <h1 className="mb-4 text-xl font-bold text-gray-800 sm:mb-6 sm:text-2xl">Mes universités favorites</h1>
+                <h1 className="mb-4 mt-10 text-xl font-bold text-gray-800 sm:mb-6 sm:text-2xl">Mes universités favorites</h1>
                 {loading ? (
                     <div className="flex h-64 items-center justify-center">
                         <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-primary-500"></div>

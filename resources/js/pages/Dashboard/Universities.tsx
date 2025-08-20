@@ -133,7 +133,7 @@ const Universities: React.FC<UniversitiesProps> = ({ student }) => {
     };
 
     return (
-        <DashboardLayout name={student.nom_complet} level={student.filiere}>
+        <DashboardLayout name={student.nom_complet} profile_picture_path={student.profile_photo_path || ''} level={student.filiere}>
             <div className="min-h-screen w-full px-3 sm:px-4 md:px-6">
                 <h1 className="mb-4 text-xl font-bold text-gray-800 sm:mb-6 sm:text-2xl">Universités</h1>
 

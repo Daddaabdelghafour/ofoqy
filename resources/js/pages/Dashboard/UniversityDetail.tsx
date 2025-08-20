@@ -106,7 +106,7 @@ const UniversityDetail = ({ student, id }: UniversitiesProps) => {
     if (loading) {
         return (
             <div className="min-h-screen">
-                <DashboardLayout name={student.nom_complet} level={student.filiere}>
+                <DashboardLayout profile_picture_path={student.profile_photo_path || ''} name={student.nom_complet} level={student.filiere}>
                     <div className="flex h-screen items-center justify-center">
                         <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-[#1D7A85]"></div>
                     </div>

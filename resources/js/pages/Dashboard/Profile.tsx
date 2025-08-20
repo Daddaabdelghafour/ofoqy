@@ -66,7 +66,7 @@ function Profile({ student, mbtiResult }: DashboardProps) {
     };
 
     return (
-        <DashboardLayout name={student.nom_complet} level={student.filiere}>
+        <DashboardLayout profile_picture_path={student.profile_photo_path || ''} name={student.nom_complet} level={student.filiere}>
             <div className="mt-4 min-w-full pl-4 pt-5">
                 <span className="text-[29px] font-medium tracking-wide">Profile</span>
                 <div className="flex items-start justify-between gap-10">
