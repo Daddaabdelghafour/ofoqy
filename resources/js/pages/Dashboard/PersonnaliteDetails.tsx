@@ -45,7 +45,7 @@ interface PersonnaliteDetailsProps {
     mbtiResult: {
         id: number;
         type_mbti: string;
-        percentages: Record<string, number>; // <-- Ajoute cette ligne
+        percentages: Record<string, number>; 
 
         resultat_json: {
             message: string;
@@ -92,7 +92,7 @@ const PersonnaliteDetails = ({ student, mbtiResult, shortName, metiers }: Person
           ];
     return (
         <DashboardLayout profile_picture_path={student.profile_photo_path || ''} name={student.nom_complet} level={student.filiere}>
-            <div className="flex min-h-screen w-[1200px] flex-col items-start gap-5">
+            <div className="flex min-h-screen flex-col items-start gap-5">
                 {/* Informations de l'étudiant + button 'commencer le test' */}
                 <div className="flex w-full items-center justify-between p-10">
                     <div className="flex flex-col gap-5">
@@ -139,7 +139,7 @@ const PersonnaliteDetails = ({ student, mbtiResult, shortName, metiers }: Person
                 {/* Contenu des détails */}
                 <div className="grid grid-cols-1 gap-8 px-[78px] py-10 md:grid-cols-2">
                     {/* Colonne 1 */}
-                    <div className="min-h-[554px] rounded-lg bg-white p-6 shadow">
+                    <div className="min-h-[554px] rounded-lg bg-white p-6 shadow mt-4">
                         <p className="mb-5 text-xl font-semibold text-[#191919]">Votre personnalité est la suivante : </p>
                         {mbtiResult?.type_mbti ? (
                             // split characters
@@ -223,7 +223,7 @@ const PersonnaliteDetails = ({ student, mbtiResult, shortName, metiers }: Person
                                     </div>
                                     <div className="my-5 min-w-full p-4">
                                         <button
-                                            onClick={() => (window.location.href = '')}
+                                            onClick={()=>window.location.href='/dashboard/filieres-metiers/' + metiers[0].id+'/metier'}
                                             className="btn btn-primary mt-4 flex min-w-full justify-center border-primary-600 px-10 text-[15px] font-medium leading-[19.95px] tracking-[0.37px] hover:bg-white hover:text-primary-1000 md:mt-0"
                                         >
                                             Découvrir

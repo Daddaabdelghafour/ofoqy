@@ -163,34 +163,34 @@ const ProfileDetails: React.FC<Props> = ({ student }) => {
             )}
 
             <div className="container mx-auto px-4 py-8">
-                <div className="mb-[100px] flex h-[25px] gap-3">
+                <div className="mb-[80px] flex h-[25px] gap-3 mt-4">
                     <a className="" href="/dashboard">
                         <ArrowLeft />
                     </a>
-                    <h1 className="mb-6 text-2xl font-bold text-gray-800">Profil Utilisateur</h1>
+                    <h1 className="mb-6 text-2xl font-bold text-gray-800 ">Profil Utilisateur</h1>
                 </div>
                 <div className="container-custom min-h-screen p-5">
                     <div className="min-h-[769px] rounded-xl">
-                        <div className="flex h-[80px] min-w-full flex-col items-center rounded-xl bg-gradient-to-r from-[#1D7A85] to-[#071C1F]"></div>
+                        <div className="flex h-[70px] min-w-full flex-col items-center rounded-xl bg-gradient-to-r from-[#1D7A85] to-[#071C1F]"></div>
 
                         {/* First section : profile picture + name + email + sauvegarder button */}
                         <div className="flex items-center justify-between bg-white p-5">
                             {/* Section photo de profil */}
                             <div className="mb-6 flex items-center justify-start gap-5">
-                                <div className="relative flex items-center justify-center object-cover">
+                                <div className="relative w-32 h-32 rounded-full flex items-center justify-center">
                                     <img
                                         src={
                                             photoPreview ||
                                             (student.profile_photo_path ? `/storage/${student.profile_photo_path}` : '/images/SpaceMan.png')
                                         }
                                         alt={student.nom_complet}
-                                        className="h-32 w-32 items-center rounded-full border-4 border-white object-contain shadow-md"
+                                        className="absolute inset-0 w-full h-full object-cover rounded-full"
                                     />
 
                                     <button
                                         type="button"
                                         onClick={selectNewPhoto}
-                                        className="absolute bottom-0 right-0 rounded-full bg-[#1D7A85] p-1.5 text-white shadow-sm"
+                                        className="absolute bottom-2 right-2 rounded-full bg-[#1D7A85] p-1.5 text-white shadow-sm"
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                             <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />

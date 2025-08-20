@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CorrespondanceMbtiMetier extends Model
 {
-    protected $table = 'correspondances_mbti_metiers';
+    protected $table = 'correspondances_mbti_metiers'; 
     protected $fillable = [
         'type_mbti',
         'metier_id',
@@ -18,7 +18,6 @@ class CorrespondanceMbtiMetier extends Model
         'niveau_affinite' => 'integer',
     ];
 
-    protected $table = 'correspondances_mbti_metiers'; // <-- Add this line
 
     // Relations Eloquent ^^
 

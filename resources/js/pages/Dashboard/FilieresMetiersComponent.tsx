@@ -102,7 +102,7 @@ const FilieresMetiersComponent: React.FC<Props> = ({ student, element, type, uni
                         </div>
                     </div>
                     {type === 'metier' ? (
-                        <div className="gap- flex justify-between">
+                        <div className="gap-3 flex justify-between">
                             <div className="mt-7 flex flex-1 justify-start rounded-[4px] bg-white p-8">
                                 <div className="flex w-full flex-col gap-5">
                                     <div className="flex gap-3">

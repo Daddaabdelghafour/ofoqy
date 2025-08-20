@@ -135,7 +135,11 @@ Route::get('/import-universities', function () {
     return Inertia::render('ImportUniversities');
 })->name('import.universities');
 
+// Route de filieres et metiers
 Route::get('/dashboard/filieres-metiers', [FilieresMetiersController::class, 'FilieresMetiers'])->name('filieres-metiers');
+
+Route::get('/dashboard/filieres-metiers/{id}/{type}', [FilieresMetiersComponentController::class, 'Showcomponent'])->name('filieres-metiers.show');
+
 // Search route
 Route::post('/filter', [FilieresMetiersController::class, 'searchFilieresMetiers']);
 
@@ -160,7 +164,7 @@ Route::middleware(["auth:student"])->get('/help', function () {
     return Inertia::render('Dashboard/Aide');
 })->name('help');
 
-Route::middleware(['auth:student'])->get('/PersonnaliteDetails', [MBTIController::class, 'showDetails'])->name('PersonnaliteDetails');
+Route::middleware(['auth:student'])->get('/dashboard/acceuil', [MBTIController::class, 'showDetails'])->name('PersonnaliteDetails');
 
 // Route des  favoris des universités
 Route::post('/favorite', [FavorisUniversiteController::class, 'store'])->middleware('auth:student');
@@ -178,6 +182,6 @@ Route::get('/chatbot', function () {
 })->name('chatbot');
 
 
-//Route::get('/dashboard/filieres-metiers/{id}/{type}', [FilieresMetiersComponentController::class, 'Showcomponent'])->name('filieres-metiers.show');
-require __DIR__ . '/settings.php';
+
+//require __DIR__ . '/settings.php';
 /*require __DIR__ . '/auth.php';*/

@@ -135,7 +135,7 @@ const Universities: React.FC<UniversitiesProps> = ({ student }) => {
     return (
         <DashboardLayout name={student.nom_complet} profile_picture_path={student.profile_photo_path || ''} level={student.filiere}>
             <div className="min-h-screen w-full px-3 sm:px-4 md:px-6">
-                <h1 className="mb-4 text-xl font-bold text-gray-800 sm:mb-6 sm:text-2xl">Universités</h1>
+                <h1 className="mb-4 mt-6 text-xl font-bold text-gray-800 sm:mb-6 sm:text-2xl">Universités</h1>
 
                 {/* Enhanced Filters */}
                 <div className="mb-4 rounded-lg bg-white p-3 shadow-sm sm:mb-6 sm:p-4">
@@ -268,11 +268,11 @@ const Universities: React.FC<UniversitiesProps> = ({ student }) => {
                 ) : (
                     <>
                         {/* Card Layout - FIXED */}
-                        <div className="rounded-lg bg-white p-[150px] shadow-sm sm:p-[80px]">
+                        <div className="rounded-lg bg-white p-8 shadow-sm sm:p-8">
                             {universities.length > 0 ? (
-                                <div className="grid grid-cols-3 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+                                <div className="grid grid-cols-3 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
                                     {universities.map((university) => (
-                                        <div key={university.id} className="flex justify-between">
+                                        <div key={university.id} className="flex justify-between gap-1">
                                             <UniversityCard
                                                 id={university.id}
                                                 nom={university.nom}
