@@ -3,11 +3,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Filiere;
 use App\Models\Universite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
 class UniversitesController extends Controller
@@ -22,7 +24,6 @@ class UniversitesController extends Controller
     {
         try {
             $query = Universite::query();
-
             // Filter by type (public/private)
             if ($request->has('type') && !empty($request->type)) {
                 if ($request->type === 'publique') {
@@ -115,6 +116,8 @@ class UniversitesController extends Controller
             // Apply pagination
             $perPage = $request->get('per_page', 6);
             $universities = $query->paginate($perPage);
+
+            
 
             return response()->json([
                 'data' => $universities->items(),

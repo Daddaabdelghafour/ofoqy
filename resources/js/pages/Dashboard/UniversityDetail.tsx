@@ -63,6 +63,17 @@ const UniversityDetail = ({ student, id }: UniversitiesProps) => {
         }
     };
 
+    function formatDate(dateStr: string | null) {
+        if (!dateStr) return 'N/A';
+        const date = new Date(dateStr);
+        if (isNaN(date.getTime())) return 'N/A';
+        return date.toLocaleDateString('fr-FR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+        });
+    }
+
     useEffect(() => {
         // Fetch university data
         const fetchUniversity = async () => {
@@ -196,7 +207,7 @@ const UniversityDetail = ({ student, id }: UniversitiesProps) => {
                             {isValidString(university.date_ouverture) ? (
                                 <div className="flex items-center gap-2">
                                     <img src="/images/calendry.png" className="h-5 w-5" alt="Calendar icon" />
-                                    <p className="font-semibold text-red-600">Date de postulation : {university.date_ouverture}</p>
+                                    <p className="font-semibold text-red-600">Date de postulation : {formatDate(university.date_ouverture)}</p>
                                 </div>
                             ) : (
                                 <div className="flex items-center gap-2">
@@ -406,7 +417,7 @@ const UniversityDetail = ({ student, id }: UniversitiesProps) => {
                                                 <p className="text-sm text-gray-600">Formation spécialisée dans ce domaine.</p>
                                                 <hr />
                                             </div>
-                                            <a href="#" className="text-sm text-[#1D7A85]">
+                                            <a href={university.site_web ? university.site_web : '#'} className="text-sm text-[#1D7A85]">
                                                 Voir plus de détails
                                                 <ArrowRight size={16} className="ml-1 inline-block" />
                                             </a>

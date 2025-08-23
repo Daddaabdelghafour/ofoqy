@@ -111,8 +111,21 @@ Route::post('/universites/by-bac-type', [UniversitesController::class, 'findByBa
 // University routes (To show all universities)
 Route::middleware(["auth:student"])->get('/dashboard/universities', function () {
     $student = Auth::guard("student")->user();
+    $universites = \App\Models\Universite::with('filieres')->get();
+
+    // Récupérer toutes les filières liées aux universités affichées
+    $filiereIds = [];
+    foreach ($universites as $u) {
+        foreach ($u->filieres as $f) {
+            $filiereIds[] = $f->id;
+        }
+    }
+    $filiereIds = array_unique($filiereIds);
+    $filieres = \App\Models\Filiere::whereIn('id', $filiereIds)->get();
+
     return Inertia::render('Dashboard/Universities', [
         'student' => $student,
+        'filieres' => $filieres,
     ]);
 })->name('dashboard.universities');
 
@@ -181,6 +194,15 @@ Route::get('/chatbot', function () {
     ]);
 })->name('chatbot');
 
+
+Route::middleware(['auth:student'])->get('/dashboard/postulations', function () {
+    $student = Auth::guard('student')->user();
+    $universites = \App\Models\Universite::all(); // Or filter as needed
+    return Inertia::render('Dashboard/Postulations', [
+        'student' => $student,
+        'universites' => $universites,
+    ]);
+})->name('dashboard.postulations');
 
 
 //require __DIR__ . '/settings.php';
