@@ -16,6 +16,11 @@ type Universite = {
     etat_postulation: string;
 };
 
+type Filiere = {
+    id: number;
+    nom: string;
+};
+
 type PaginationData = {
     total: number;
     per_page: number;
@@ -29,9 +34,10 @@ type UniversitiesProps = {
         filiere: string;
         profile_photo_path: string | null;
     };
+    filieres: Filiere[];
 };
 
-const Universities: React.FC<UniversitiesProps> = ({ student }) => {
+const Universities: React.FC<UniversitiesProps> = ({ student, filieres }) => {
     const [universities, setUniversities] = useState<Universite[]>([]);
     const [loading, setLoading] = useState(true);
     const [favorites, setFavorites] = useState<number[]>([]);
@@ -143,56 +149,50 @@ const Universities: React.FC<UniversitiesProps> = ({ student }) => {
                         <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 lg:grid-cols-3">
                             <div>
                                 <label className="mb-1 block text-sm font-medium text-gray-700">Nom</label>
-                                <input
-                                    type="text"
+                                <select
                                     name="nom"
                                     value={filters.nom}
                                     onChange={handleFilterChange}
-                                    placeholder="Nom de l'université..."
                                     className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary-500"
-                                />
+                                >
+                                    <option value="">Toutes les universités</option>
+
+                                    {universities.map((u) => (
+                                        <option value={u.nom}>{u.nom}</option>
+                                    ))}
+                                </select>
                             </div>
 
                             <div>
                                 <label className="mb-1 block text-sm font-medium text-gray-700">Filière</label>
-                                <input
-                                    type="text"
+                                <select
                                     name="filiere"
                                     value={filters.filiere}
                                     onChange={handleFilterChange}
-                                    placeholder="Filière..."
-                                    className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary-500"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="mb-1 block text-sm font-medium text-gray-700">Branche</label>
-                                <select
-                                    name="branche"
-                                    value={filters.branche}
-                                    onChange={handleFilterChange}
                                     className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary-500"
                                 >
-                                    <option value="">Toutes les branches</option>
-                                    <option value="sciences_maths_a">Sciences Mathématiques A</option>
-                                    <option value="sciences_maths_b">Sciences Mathématiques B</option>
-                                    <option value="sciences_physiques">Sciences Physiques</option>
-                                    <option value="sciences_svt">Sciences SVT</option>
-                                    <option value="economie">Sciences Économiques</option>
-                                    <option value="lettres">Lettres</option>
+                                    <option value="">Toutes les filières</option>
+                                    {filieres.map((filiere) => (
+                                        <option key={filiere.id} value={filiere.id}>
+                                            {filiere.nom}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
 
                             <div>
                                 <label className="mb-1 block text-sm font-medium text-gray-700">Ville</label>
-                                <input
-                                    type="text"
+                                <select
                                     name="ville"
                                     value={filters.ville}
                                     onChange={handleFilterChange}
-                                    placeholder="Ville..."
                                     className="w-full rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-1 focus:ring-primary-500"
-                                />
+                                >
+                                    <option value="">Toutes les villes</option>
+                                    {universities.map((u) => (
+                                        <option value={u.localisation}>{u.localisation}</option>
+                                    ))}
+                                </select>
                             </div>
 
                             <div>
@@ -223,7 +223,7 @@ const Universities: React.FC<UniversitiesProps> = ({ student }) => {
                                     <option value="privee">Privée</option>
                                 </select>
                             </div>
-
+                            <br />
                             <div className="flex items-center">
                                 <input
                                     type="checkbox"
@@ -252,7 +252,7 @@ const Universities: React.FC<UniversitiesProps> = ({ student }) => {
                                 </label>
                             </div>
 
-                            <div className="flex items-end">
+                            <div className="flex items-end justify-end">
                                 <button type="submit" className="rounded-md bg-[#1D7A85] px-4 py-2 text-sm font-medium text-white hover:bg-[#18656e]">
                                     Filtrer
                                 </button>
