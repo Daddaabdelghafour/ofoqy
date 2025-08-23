@@ -164,7 +164,6 @@ Route::middleware(["auth:student"])->get("/profileDetails/{id}", function ($id) 
     ]);
 })->name('profileDetails');
 
-
 Route::middleware(["auth:student"])->group(function () {
     Route::get('/profileDetails', [StudentProfileController::class, 'show'])->name('profile.show');
     Route::post('/profileDetails', [StudentProfileController::class, 'update'])->name('profile.update');

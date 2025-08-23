@@ -58,7 +58,7 @@ const Chatbot = ({ student,mbtiType }: DashboardLayoutProps) => {
     const [showLast7, setShowLast7] = useState(true);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [messages, setMessages] = useState([
-    { message: "Bonjour, comment puis-je vous aider ?", time: "10:15", isUser: false }
+    { message: "Bonjour, comment puis-je vous aider ?", time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), isUser: false }
     ]);
     const [input, setInput] = useState("");
     
@@ -105,7 +105,7 @@ const Chatbot = ({ student,mbtiType }: DashboardLayoutProps) => {
                         src={student.profile_photo_path ? '/storage/' + student.profile_photo_path : '/images/SpaceMan.png'}
                         alt="User"
                     />
-                    <span className="mb-1 text-[19px] font-medium text-white">{student.nom_complet}</span>
+                    <span className="mb-1 text-[19px] font-medium text-white text-center">{student.nom_complet}</span>
                     <span className="text-[11px] font-medium text-[#ffffff95]">{student.filiere}</span>
                 </div>
                 <div className="flex w-max flex-col items-center py-4">
