@@ -13,7 +13,7 @@ interface DashboardProps {
         niveau_etude: string;
         filiere: string;
         moyenne_general_bac: number;
-        profile_picture_path: string | null;
+        profile_photo_path: string | null;
     };
     mbtiResult: {
         id: number;
@@ -135,7 +135,7 @@ function FilieresMetiers({ student, mbtiResult, metiers, filieres }: DashboardPr
         const paginatedItems = items.slice((page - 1) * pageSize, page * pageSize);
 
     return (
-        <DashboardLayout name={student.nom_complet} level={student.filiere} profile_picture_path={student.profile_picture_path || ''}>
+        <DashboardLayout name={student.nom_complet} level={student.filiere} profile_picture_path={student.profile_photo_path || ''}>
             <div className='mt-4 pt-5 min-w-full pl-4'>
                 <span className='font-medium text-[28px] text-[#191919]'>Acceuil</span>
                 <div className='min-w-full border border-primary-1000 border-l-[4px] rounded-[4px] my-6'>

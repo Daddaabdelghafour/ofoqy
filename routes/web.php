@@ -17,6 +17,7 @@ use App\Http\Controllers\StudentProfileController;
 use App\Http\Controllers\UniversitesController;
 use App\Http\Controllers\FilieresMetiersController;
 use App\Http\Controllers\FilieresMetiersComponentController;
+use App\Http\Controllers\ChatbotController;
 
 
 
@@ -174,13 +175,10 @@ Route::get('/is-favorite/{id}', [FavorisUniversiteController::class, 'isFavorite
 
 
 //Route de chatbot
-Route::get('/chatbot', function () {
-    $student = Auth::guard("student")->user();
-    return Inertia::render('Dashboard/Chatbot', [
-        "student" => $student,
-    ]);
-})->name('chatbot');
+Route::get('/chatbot',  [ChatbotController::class, 'Chatbot'])->middleware('auth:student');
 
+
+Route::post('/chatbot/message', [ChatbotController::class, 'sendMessage'])->middleware('auth:student');
 
 
 //require __DIR__ . '/settings.php';
