@@ -44,7 +44,7 @@ const Postulations: React.FC<PostulationsProps> = ({ student, universites }) => 
             <div className="mt-10 min-h-screen w-full px-3 sm:px-4 md:px-6">
                 <h1 className="mb-4 text-xl font-bold text-gray-800 sm:mb-6 sm:text-2xl">Postulations</h1>
                 {/* Filters */}
-                <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center">
+                <div className="mb-[80px] flex flex-col gap-4 sm:flex-row sm:items-center">
                     <select value={etatFilter} onChange={(e) => setEtatFilter(e.target.value)} className="w-full rounded border px-3 py-2 sm:w-auto">
                         <option value="">Tous les états</option>
                         <option value="ouvert">Ouvert</option>
@@ -64,7 +64,7 @@ const Postulations: React.FC<PostulationsProps> = ({ student, universites }) => 
                         ))}
                     </select>
                 </div>
-                <div className="grid grid-cols-1 gap-x-[1px] gap-y-[10px] sm:grid-cols-2 lg:grid-cols-3">
+                <div className="flex flex-wrap justify-around gap-x-[15px] gap-y-[50px]">
                     {filteredUniversites.map((u) => (
                         <PostulationCard
                             key={u.id}
