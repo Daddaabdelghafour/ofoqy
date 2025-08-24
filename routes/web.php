@@ -187,8 +187,18 @@ Route::get("/favorite-ids", [FavorisUniversiteController::class, 'favoriteids'])
 Route::get('/is-favorite/{id}', [FavorisUniversiteController::class, 'isFavorite']);
 
 
+Route::middleware(['auth:student'])->get('/dashboard/postulations', function () {
+    $student = Auth::guard("student")->user();
+    $universites = \App\Models\Universite::with('filieres')->get();
+    return Inertia::render('Dashboard/Postulations', [
+        'student' => $student,
+        'universites' => $universites,
+    ]);
+})->name('dashboard.postulations');
+
+
 //Route de chatbot
-Route::get('/chatbot',  [ChatbotController::class, 'Chatbot'])->middleware('auth:student');
+Route::get('/chatbot', [ChatbotController::class, 'Chatbot'])->middleware('auth:student');
 
 
 Route::post('/chatbot/message', [ChatbotController::class, 'sendMessage'])->middleware('auth:student');
