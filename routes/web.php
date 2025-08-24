@@ -197,11 +197,7 @@ Route::middleware(['auth:student'])->get('/dashboard/postulations', function () 
 
 
 //Route de chatbot
-<<<<<<< HEAD
 Route::get('/chatbot', [ChatbotController::class, 'Chatbot'])->middleware('auth:student');
-=======
-Route::get('/chatbot',  [ChatbotController::class, 'Chatbot']);
->>>>>>> 147b48d9cf73cdfa1cca90462e261efd7a5dafb7
 
 
 Route::post('/chatbot/message', [ChatbotController::class, 'sendMessage']);
