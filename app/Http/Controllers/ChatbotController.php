@@ -64,13 +64,109 @@ class ChatbotController extends Controller
                     'presence_penalty' => 0
                 ]);
 
-        $reply = $response->json()['choices'][0]['message']['content'];
-        log::info('Chatbot response: ' . $reply);
+    $json = $response->json();
+    if (isset($json['choices']) && isset($json['choices'][0]['message']['content'])) {
+        $reply = $json['choices'][0]['message']['content'];
+        Log::info($reply);
+    } else {
+        $reply = "Désolé, je n'ai pas pu générer de réponse pour le moment.";
+        Log::error('OpenRouter API error', [
+            'response' => $json,
+            'status' => $response->status(),
+        ]);
+    }
+    return response()->json([
+        'reply' => $reply
+    ]);
+}
+public function storeSessionMessages(Request $request)
+{
+    $messages = $request->input('messages'); // tableau [{message, time, isUser}]
+    $studentId = Auth::guard('student')->id();
+    $firstUserMsg = null;
+    foreach ($messages as $msg) {
+        if ($msg['isUser']) {
+            $firstUserMsg = $msg['message'];
+            break;
+        }
+    }
+    $title = $firstUserMsg
+        ? implode(' ', array_slice(explode(' ', $firstUserMsg), 0, 4)) . '...'
+        : 'Conversation';
 
-
-        return response()->json([
-            'reply' => $reply
+    foreach ($messages as $msg) {
+        
+        \App\Models\MessageChatbot::create([
+            'student_id' => $studentId,
+            'role' => $msg['isUser'] ? 'user' : 'assistant',
+            'message' => $msg['message'],
+            'contexte_json' => ['title' => $title], // ou autre contexte si besoin
         ]);
     }
 
+    return response()->json(['success' => true]);
+}
+public function getHistory()
+{
+    $studentId = Auth::guard('student')->id();
+
+    $today = \App\Models\MessageChatbot::where('student_id', $studentId)
+        ->whereDate('created_at', now()->toDateString())
+        ->where('role', 'user')
+        ->get();
+
+    $yesterday = \App\Models\MessageChatbot::where('student_id', $studentId)
+        ->whereDate('created_at', now()->subDay()->toDateString())
+        ->where('role', 'user')
+        ->get();
+
+    $last7days = \App\Models\MessageChatbot::where('student_id', $studentId)
+        ->whereBetween('created_at', [now()->subDays(7)->startOfDay(), now()->subDay()->endOfDay()])
+        ->where('role', 'user')
+        ->get();
+
+    // Format for frontend
+    return response()->json([
+        'today' => $today->map(fn($msg) => [
+            'id' => $msg->id,
+            'title' => $msg->contexte_json['title'] ?? substr($msg->message, 0, 20),
+            'time' => $msg->created_at->format('H:i'),
+        ]),
+        'yesterday' => $yesterday->map(fn($msg) => [
+            'id' => $msg->id,
+            'title' => $msg->contexte_json['title'] ?? substr($msg->message, 0, 20),
+            'time' => $msg->created_at->format('H:i'),
+        ]),
+        'last7days' => $last7days->map(fn($msg) => [
+            'id' => $msg->id,
+            'title' => $msg->contexte_json['title'] ?? substr($msg->message, 0, 20),
+            'time' => $msg->created_at->format('dddd'),
+        ]),
+    ]);
+}
+public function getConversation($title)
+{
+    $studentId = Auth::guard('student')->id();
+    $title = urldecode($title);
+
+    $messages = \App\Models\MessageChatbot::where('student_id', $studentId)
+        ->where('contexte_json->title', $title)
+        ->orderBy('created_at', 'asc')
+        ->get();
+
+    return response()->json($messages->map(function($msg) {
+        return [
+            'message' => $msg->message,
+            'time' => $msg->created_at->format('H:i'),
+            'isUser' => $msg->role === 'user'
+        ];
+    }));
+}
+public function deleteConversation($title)
+{
+    $studentId = Auth::guard('student')->id();
+    $title = urldecode($title);
+    \App\Models\MessageChatbot::where('student_id', $studentId)->where('contexte_json->title', $title)->delete();
+    return response()->json(['success' => true]);
+}
 }

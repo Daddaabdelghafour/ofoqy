@@ -84,11 +84,11 @@ function DashboardLayout({ children, name, level, profile_picture_path }: Dashbo
                             />
                         </div>
                         <div className="flex items-center gap-10">
-                            <div className="flex h-[60px] items-center justify-center whitespace-nowrap rounded-[3px] bg-primary-1000 px-6 py-4 hover:cursor-pointer">
-                                <MessageSquare className="h-6 w-6 text-white" />
-                                <span onClick={() => {
+                            <div onClick={() => {
                                         window.location.href = '/chatbot';
-                                    }} className="ml-3 hidden text-[16px] font-semibold text-white sm:inline hover:shadow-xl hover:shadow-black">Chatbot IA</span>
+                                    }} className="flex h-[60px] items-center justify-center whitespace-nowrap rounded-[3px] bg-primary-1000 px-6 py-4 hover:cursor-pointer hover:shadow-md hover:shadow-black">
+                                <MessageSquare className="h-6 w-6 text-white" />
+                                <span  className="ml-3 hidden text-[16px] font-semibold text-white sm:inline ">Chatbot IA</span>
                             </div>
                             <div className="flex h-[60px] items-center justify-center rounded-[3px] bg-primary-1000 p-4 hover:cursor-pointer">
                                 <Bell className="h-6 w-6 text-white" />

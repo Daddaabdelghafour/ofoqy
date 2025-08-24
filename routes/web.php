@@ -164,7 +164,6 @@ Route::middleware(["auth:student"])->get("/profileDetails/{id}", function ($id) 
     ]);
 })->name('profileDetails');
 
-
 Route::middleware(["auth:student"])->group(function () {
     Route::get('/profileDetails', [StudentProfileController::class, 'show'])->name('profile.show');
     Route::post('/profileDetails', [StudentProfileController::class, 'update'])->name('profile.update');
@@ -198,11 +197,22 @@ Route::middleware(['auth:student'])->get('/dashboard/postulations', function () 
 
 
 //Route de chatbot
+<<<<<<< HEAD
 Route::get('/chatbot', [ChatbotController::class, 'Chatbot'])->middleware('auth:student');
+=======
+Route::get('/chatbot',  [ChatbotController::class, 'Chatbot']);
+>>>>>>> 147b48d9cf73cdfa1cca90462e261efd7a5dafb7
 
 
-Route::post('/chatbot/message', [ChatbotController::class, 'sendMessage'])->middleware('auth:student');
+Route::post('/chatbot/message', [ChatbotController::class, 'sendMessage']);
 
+Route::post('/chatbot/session-messages', [ChatbotController::class, 'storeSessionMessages']);
+
+Route::get('/chatbot/history', [ChatbotController::class, 'getHistory']);
+
+Route::get('/chatbot/conversation/{title}', [ChatbotController::class, 'getConversation']);
+
+Route::get('/chatbot/delete-conversation/{title}', [ChatbotController::class, 'deleteConversation']);
 
 //require __DIR__ . '/settings.php';
 /*require __DIR__ . '/auth.php';*/
