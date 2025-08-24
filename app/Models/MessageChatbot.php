@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MessageChatbot extends Model
 {
+    protected $table = 'messages_chatbot';
     protected $fillable = [
         'student_id',
         'role',

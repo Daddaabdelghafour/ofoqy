@@ -187,11 +187,18 @@ Route::get('/is-favorite/{id}', [FavorisUniversiteController::class, 'isFavorite
 
 
 //Route de chatbot
-Route::get('/chatbot',  [ChatbotController::class, 'Chatbot'])->middleware('auth:student');
+Route::get('/chatbot',  [ChatbotController::class, 'Chatbot']);
 
 
-Route::post('/chatbot/message', [ChatbotController::class, 'sendMessage'])->middleware('auth:student');
+Route::post('/chatbot/message', [ChatbotController::class, 'sendMessage']);
 
+Route::post('/chatbot/session-messages', [ChatbotController::class, 'storeSessionMessages']);
+
+Route::get('/chatbot/history', [ChatbotController::class, 'getHistory']);
+
+Route::get('/chatbot/conversation/{title}', [ChatbotController::class, 'getConversation']);
+
+Route::get('/chatbot/delete-conversation/{title}', [ChatbotController::class, 'deleteConversation']);
 
 //require __DIR__ . '/settings.php';
 /*require __DIR__ . '/auth.php';*/

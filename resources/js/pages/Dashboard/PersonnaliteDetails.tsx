@@ -97,7 +97,7 @@ const PersonnaliteDetails = ({ student, mbtiResult, shortName, metiers }: Person
                 <div className="flex w-full items-center justify-between p-10">
                     <div className="flex flex-col gap-5">
                         <div className="flex gap-3">
-                            <a href="/Profile">
+                            <a href="/profile">
                                 <ArrowLeft />
                             </a>
 
