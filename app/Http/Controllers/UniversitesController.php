@@ -117,7 +117,7 @@ class UniversitesController extends Controller
             $perPage = $request->get('per_page', 6);
             $universities = $query->paginate($perPage);
 
-            
+
 
             return response()->json([
                 'data' => $universities->items(),
@@ -136,6 +136,16 @@ class UniversitesController extends Controller
                 'message' => $e->getMessage()
             ], 500);
         }
+    }
+
+
+    public function adminIndex()
+    {
+        $admin = Auth::guard('admin')->user();
+        $universites = Universite::all();
+        return Inertia::render('Admin/Dashboard', [
+            'admin' => $admin,
+        ]);
     }
 
     /**

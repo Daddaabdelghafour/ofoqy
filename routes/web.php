@@ -45,17 +45,24 @@ Route::middleware('guest')->group(function () {
     })->name('login');
 
 
-    Route::post('/login', function (Request $request, AuthenticateStudent $action) {
-        $student = $action->authenticate($request->all());
+    Route::post('/login', function (Request $request) {
+        $input = $request->all();
+        // le cas d'un admin
+        if (\App\Models\Admin::where('email', $input['email'])->exists()) {
+            $admin = app(\App\Actions\Fortify\AuthenticateAdmin::class)->authenticate($input);
+            Auth::guard('admin')->login($admin);
+            return redirect('/admin/dashboard');
+        }
+        // le cas d'un étudiant
+        if (\App\Models\Student::where('email', $input['email'])->exists()) {
+            $student = app(\App\Actions\Fortify\AuthenticateStudent::class)->authenticate($input);
+            Auth::guard('student')->login($student);
+            return redirect('/MBTI');
+        }
 
-        Log::info('LOGIN - Before Auth::guard(student)->login()', [
-            'student_id' => $student->id,
-            'email' => $student->email
+        return back()->withErrors([
+            'email' => 'Les identifiants fournis ne correspondent à aucun compte.',
         ]);
-
-        Auth::guard('student')->login($student);
-
-        return redirect('/MBTI');
     });
 
 });
@@ -209,6 +216,15 @@ Route::get('/chatbot/history', [ChatbotController::class, 'getHistory']);
 Route::get('/chatbot/conversation/{title}', [ChatbotController::class, 'getConversation']);
 
 Route::get('/chatbot/delete-conversation/{title}', [ChatbotController::class, 'deleteConversation']);
+
+
+//admin routes
+
+Route::middleware(['auth:admin'])->group(function () {
+    Route::get('/admin/dashboard', [UniversitesController::class, 'adminIndex'])->name('admin.dashboard');
+    // Add more admin routes here
+});
+
 
 //require __DIR__ . '/settings.php';
 /*require __DIR__ . '/auth.php';*/
