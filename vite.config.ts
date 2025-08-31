@@ -20,4 +20,8 @@ export default defineConfig({
             'ziggy-js': resolve(__dirname, 'vendor/tightenco/ziggy'),
         },
     },
+    build: {
+        outDir: 'public', // <-- Add this line
+        emptyOutDir: false
+    } 
 });
