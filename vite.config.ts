@@ -22,7 +22,7 @@ export default defineConfig({
     },
     build: {
     outDir: 'public/build', // relative to resources/js
-    emptyOutDir: false,
+    emptyOutDir: true,
     manifest: true,
   }
 });
