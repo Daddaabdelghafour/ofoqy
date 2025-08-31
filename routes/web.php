@@ -18,6 +18,7 @@ use App\Http\Controllers\UniversitesController;
 use App\Http\Controllers\FilieresMetiersController;
 use App\Http\Controllers\FilieresMetiersComponentController;
 use App\Http\Controllers\ChatbotController;
+use App\Http\Controllers\AdminController;
 
 
 
@@ -220,10 +221,10 @@ Route::get('/chatbot/delete-conversation/{title}', [ChatbotController::class, 'd
 
 //admin routes
 
-Route::middleware(['auth:admin'])->group(function () {
-    Route::get('/admin/dashboard', [UniversitesController::class, 'adminIndex'])->name('admin.dashboard');
-    // Add more admin routes here
-});
+Route::get('/admin/dashboard',[AdminController::class, 'dashboard']);
+Route::post('/admin/universite/add', [AdminController::class, 'addUniversite']);
+Route::post('/admin/universite/delete', [AdminController::class, 'deleteUniversite']);
+Route::post('/admin/universite/edit', [AdminController::class, 'editUniversite']);
 
 
 //require __DIR__ . '/settings.php';

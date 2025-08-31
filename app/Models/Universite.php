@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Universite extends Model
 {
+    protected $table = 'universites';
     protected $fillable = [
         'nom',
         'universite_rattachement',
@@ -25,6 +26,7 @@ class Universite extends Model
         'conditions_admission',
         'formations_proposees',
         'deroulement_concours',
+        'logo'
     ];
 
     protected $casts = [
