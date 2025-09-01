@@ -71,7 +71,7 @@ function WhyOfoqy() {
                     </div>
                     <div className="absolute bottom-[20px] left-0 z-20 sm:bottom-[25px] lg:bottom-[25px]">
                         <img
-                            src="/images/WhyOfoqy1.png"
+                            src="/images/whyOfoqy1.png"
                             alt=""
                             className="h-auto w-auto max-w-none"
                             style={{ minWidth: 'auto', minHeight: 'auto' }}
