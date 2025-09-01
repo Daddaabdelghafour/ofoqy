@@ -132,7 +132,7 @@ useEffect(() => {
                         
                     <img
                         className="my-2 md:my-4 w-[50px] md:w-[70px] h-[50px] md:h-[70px] rounded-full bg-primary-50 object-cover"
-                        src={student.profile_photo_path ? '/storage/' + student.profile_photo_path : '/images/SpaceMan.png'}
+                        src={student.profile_photo_path ? student.profile_photo_path : '/images/SpaceMan.png'}
                         alt="User"
                     />
                     <span className="mb-1 text-[15px] md:text-[19px] font-medium text-white text-center">{student.nom_complet}</span>
