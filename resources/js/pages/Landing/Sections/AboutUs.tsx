@@ -9,7 +9,7 @@ function AboutUs() {
                 <span className='font-semibold text-[32px] md:text-[40px] leading-[116%] tracking-normal text-gradient text-center md:text-left'>
                     À propos d'OFOQY
                 </span>
-                <img src='/images/vector.png' className='mt-10 md:mt-20 w-[150px] md:w-auto mr-6' />
+                <img src='/images/Vector.png' className='mt-10 md:mt-20 w-[150px] md:w-auto mr-6' />
             </div>  
             <div className='flex flex-col md:flex-row justify-between gap-6 md:gap-4 mt-6'>
                 <div className='overflow-hidden w-full md:w-[265px] h-[350px] md:h-[410px] rounded-br-[200px] md:rounded-br-[300px] mx-auto md:mx-0'>
