@@ -126,7 +126,7 @@ class StudentProfileController extends Controller
     $filename = time() . '_' . $file->getClientOriginalName();
     $file->move(public_path('images'), $filename);
 
-    $student->profile_photo_path = 'images/' . $filename;
+    $student->profile_photo_path = '/images/' . $filename;
     $student->save();
 
     return back()->with('success', 'Photo de profil mise à jour avec succès.');
