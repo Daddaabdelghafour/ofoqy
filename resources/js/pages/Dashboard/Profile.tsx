@@ -142,7 +142,7 @@ function Profile({ student, mbtiResult }: DashboardProps) {
                                 <p className="mt-2 line-clamp-3 text-[12px] font-medium text-[#708090]">{message}</p>
                             </div>
                             <div className="flex items-center justify-start hover:cursor-pointer">
-                                <a href="/PersonnaliteDetails" className="m-3 text-[13px] font-medium text-primary-1000 no-underline">
+                                <a href="/dashboard/acceuil" className="m-3 text-[13px] font-medium text-primary-1000 no-underline">
                                     Voir plus d’info avec recommandations{' '}
                                 </a>
                                 <ArrowRight className="w-[16px] text-primary-1000" />
