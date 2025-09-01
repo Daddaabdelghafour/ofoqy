@@ -3,7 +3,7 @@ import Boutton from '../../../components/Boutton';
 
 function Orientation() {
     return (
-        <div className='bg-[#1D7A850A]'>
+        <div id="guide" className='bg-[#1D7A850A]'>
         <div data-aos="fade" data-aos-duration="1000" className="section-padding container-custom flex flex-col items-center">
             <span className='text-gradient font-semibold text-[32px] md:text-[40px] leading-[38px] md:leading-[44px] text-center'>Comment s'orienter ?</span>
             <span className='font-normal leading-[24px] mt-4 text-[#717171] mb-4 text-center px-2'>Ofoqy, c’est simple et rapide. Quelques clics suffisent pour commencer ton parcours !</span>
