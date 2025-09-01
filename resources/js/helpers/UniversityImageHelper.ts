@@ -23,9 +23,9 @@ export const getUniversityImagesMap = (): Record<number, string> => {
         3: 'images/Schools/3.png',  // ENCG Agadir
         4: 'images/Schools/4.png',  // ENCG Fès
         5: 'images/Schools/5.png',  // ENCG Tanger
-        6: 'images/Schools/6.jpeg',  // ENCG Settat
-        7: 'images/Schools/7.jpeg',  // ENCG Kénitra
-        8: 'images/Schools/8.jpeg',  // ENCG Oujda
+        6: 'images/Schools/6.png',  // ENCG Settat
+        7: 'images/Schools/7.png',  // ENCG Kénitra
+        8: 'images/Schools/8.png',  // ENCG Oujda
         9: 'images/Schools/9.png',  // ENCG Dakhla
         10: 'images/Schools/10.png', // ENCG El Jadida
         11: 'images/Schools/11.png', // ENSA Marrakech
