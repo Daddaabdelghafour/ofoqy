@@ -24,5 +24,17 @@ export default defineConfig({
     outDir: 'public/build', // relative to resources/js
     emptyOutDir: true,
     manifest: true,
-  }
+  },
+    server : {
+	host: '0.0.0.0',
+	port: 5173,
+        hmr: {
+            host: '98.85.221.49',  // your EC2 public IP
+            protocol: 'ws',
+        },
+	},
+    base: process.env.VITE_URL + '/' ,
+    define: {
+      'import.meta.env.VITE_URL': JSON.stringify(process.env.VITE_URL),
+ },
 });
