@@ -181,7 +181,7 @@ const ProfileDetails: React.FC<Props> = ({ student }) => {
                                     <img
                                         src={
                                             photoPreview ||
-                                            (student.profile_photo_path ? `/storage/${student.profile_photo_path}` : '/images/SpaceMan.png')
+                                            (student.profile_photo_path ? `${student.profile_photo_path}` : '/images/SpaceMan.png')
                                         }
                                         alt={student.nom_complet}
                                         className="absolute inset-0 w-full h-full object-cover rounded-full"
