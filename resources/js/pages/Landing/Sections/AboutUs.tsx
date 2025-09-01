@@ -4,7 +4,7 @@ import Boutton from '@/components/Boutton';
 
 function AboutUs() {
     return (
-        <div data-aos="fade-left" className="container-custom justify-between w-full max-w-[1000px] mx-auto py-10 shadow-medium">
+        <div id="about" data-aos="fade-left" className="container-custom justify-between w-full max-w-[1000px] mx-auto py-10 shadow-medium">
             <div className='flex flex-col md:flex-row justify-between items-center'>
                 <span className='font-semibold text-[32px] md:text-[40px] leading-[116%] tracking-normal text-gradient text-center md:text-left'>
                     À propos d'OFOQY
