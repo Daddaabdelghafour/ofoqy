@@ -3,6 +3,7 @@ import Boutton from '@/components/Boutton';
 function Hero() {
     return (
         <div
+            id="acceuil"
             className="container-custom py-10 flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:gap-20"
             data-aos="fade-right"
             data-aos-duration="800"
