@@ -109,23 +109,27 @@ class StudentProfileController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function updateProfilePhoto(Request $request)
-    {
-        $request->validate([
-            'photo' => ['required', 'image', 'max:2048'], // 2MB max
-        ]);
+{
+    $request->validate([
+        'photo' => ['required', 'image', 'max:2048'], // 2MB max
+    ]);
 
-        $student = Auth::guard('student')->user();
+    $student = Auth::guard('student')->user();
 
-        // Supprimer l'ancienne photo si elle existe
-        if ($student->profile_photo_path && Storage::disk('public')->exists($student->profile_photo_path)) {
-            Storage::disk('public')->delete($student->profile_photo_path);
-        }
-
-        // Stocker la nouvelle photo
-        $path = $request->file('photo')->store('profile-photos', 'public');
-        $student->profile_photo_path = $path;
-        $student->save();
-
-        return back()->with('success', 'Photo de profil mise à jour avec succès.');
+    // Supprimer l'ancienne photo si elle existe
+    if ($student->profile_photo_path && file_exists(public_path($student->profile_photo_path))) {
+        unlink(public_path($student->profile_photo_path));
     }
+
+    // Stocker la nouvelle photo dans public/images
+    $file = $request->file('photo');
+    $filename = time() . '_' . $file->getClientOriginalName();
+    $file->move(public_path('images'), $filename);
+
+    $student->profile_photo_path = 'images/' . $filename;
+    $student->save();
+
+    return back()->with('success', 'Photo de profil mise à jour avec succès.');
+}
+
 }
