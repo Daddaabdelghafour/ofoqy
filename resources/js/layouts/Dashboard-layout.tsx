@@ -39,7 +39,7 @@ function DashboardLayout({ children, name, level, profile_picture_path }: Dashbo
                 >
                     <img
                         className="my-4 w-[70px] h-[70px] rounded-full bg-primary-50 object-cover"
-                        src={profile_picture_path ? '/storage/' + profile_picture_path : '/images/SpaceMan.png'}
+                        src={profile_picture_path ?  profile_picture_path : '/images/SpaceMan.png'}
                         alt="User"
                     />
                     <span className="mb-1 text-[19px] font-medium text-white">{name}</span>
