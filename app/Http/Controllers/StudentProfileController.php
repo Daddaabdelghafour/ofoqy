@@ -124,7 +124,7 @@ class StudentProfileController extends Controller
     // Stocker la nouvelle photo dans public/images
     $file = $request->file('photo');
     $filename = time() . '_' . $file->getClientOriginalName();
-    $file->move(public_path('images'), $filename);
+    $file->move(public_path('/images'), $filename);
 
     $student->profile_photo_path = '/images/' . $filename;
     $student->save();
