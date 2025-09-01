@@ -23,7 +23,7 @@ function WhyOfoqy() {
     ];
 
     return (
-        <div className="container-custom py-20 flex flex-col gap-8 lg:flex-row lg:gap-[150px]">
+        <div id="faq" className="container-custom py-20 flex flex-col gap-8 lg:flex-row lg:gap-[150px]">
             <div className="flex w-full flex-col gap-3 lg:w-auto " data-aos="fade-right" data-aos-duration="800" data-aos-delay="1000">
                 <h1 className="mb-6 bg-gradient-to-t from-gray-800 via-gray-700 to-gray-500 bg-clip-text text-center text-2xl font-semibold text-transparent sm:text-3xl lg:text-left lg:text-4xl">
                     Pourquoi Choisir <div className="leading-1 mt-2">OFOQY ?</div>
