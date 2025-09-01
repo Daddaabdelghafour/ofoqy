@@ -9,11 +9,11 @@ function Footer() {
     ];
 
     const liens = [
-        { link: 'Acceuil', href: '/services' },
-        { link: 'Nos services', href: '/services' },
-        { link: 'A propos', href: '/about' },
-        { link: "Comment s'orienter?", href: '/guide' },
-        { link: 'Témoignage', href: '/testimonials' },
+        { link: 'Acceuil', href: '#acceuil' },
+        { link: 'Nos services', href: '#services' },
+        { link: 'A propos', href: '#about' },
+        { link: "Comment s'orienter?", href: '#guide' },
+        { link: 'Témoignage', href: '#temoignage' },
     ];
 
     return (
