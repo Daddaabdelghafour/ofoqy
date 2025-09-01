@@ -35,7 +35,7 @@ function Services() {
     ];
 
     return (
-        <div className="w-full bg-[#1D7A850A]">
+        <div id="services" className="w-full bg-[#1D7A850A]">
             <div className="container-custom section-padding">
                 {/* Header Section */}
                 <div className="mx-auto mb-12 flex max-w-4xl flex-col text-center lg:mb-16">
