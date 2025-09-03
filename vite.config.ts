@@ -29,7 +29,7 @@ export default defineConfig({
 	host: '0.0.0.0',
 	port: 5173,
         hmr: {
-            host: '98.85.221.49',  // your EC2 public IP
+            host: '54.82.191.110',  // your EC2 public IP
             protocol: 'ws',
         },
 	},
