@@ -1,3 +1,4 @@
+import Notification from '@/components/Notification';
 import Steps from '@/components/Steps';
 import { useForm } from '@inertiajs/react';
 import { ArrowLeft } from 'lucide-react';
@@ -21,6 +22,7 @@ export default function Register() {
     const [currentStep, setCurrentStep] = useState(1);
     const [formErrors, setFormErrors] = useState<{ [key: string]: string }>({});
     const [isCheckingEmail, setIsCheckingEmail] = useState(false);
+    const [registrationSuccessful, setRegistrationSuccessful] = useState(false);
 
     // Function to check if email already exists
     const checkEmailExists = async (email: string): Promise<boolean> => {
@@ -30,9 +32,9 @@ export default function Register() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || ''
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
                 },
-                body: JSON.stringify({ email })
+                body: JSON.stringify({ email }),
             });
             const result = await response.json();
             return result.exists;
@@ -62,7 +64,7 @@ export default function Register() {
                 // Basic email format validation
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(data.email)) {
-                    newErrors.email = 'Format d\'email invalide.';
+                    newErrors.email = "Format d'email invalide.";
                     isValid = false;
                 } else {
                     // Check if email already exists
@@ -144,14 +146,32 @@ export default function Register() {
             } else {
                 post('/register', {
                     onFinish: () => reset('password', 'password_confirmation'),
+                    onSuccess: () => {
+                        setRegistrationSuccessful(true);
+                        reset('password', 'password_confirmation');
+                        setTimeout(() => {
+                            window.location.href = '/login';
+                        }, 3000);
+                    },
                 });
-                window.location.href = '/login';
             }
         }
     }
 
     return (
         <div className="flex min-h-screen w-full flex-col p-8">
+            <div className="absolute right-[50px] top-0">
+                {registrationSuccessful && (
+                    <Notification
+                        notification={{
+                            show: true,
+                            type: 'success',
+                            title: 'Succès',
+                            message: 'Inscription réussie ! Vous allez être redirigé vers la page de connexion.',
+                        }}
+                    />
+                )}
+            </div>
             <div className="flex flex-wrap items-center justify-between lg:flex-nowrap">
                 <a href="/">
                     <ArrowLeft className="border-2.25 h-[20px] w-[20px] text-black" />
@@ -226,7 +246,7 @@ export default function Register() {
                         className="my-6 h-[51px] rounded-[3px] bg-primary-1000 px-4 text-[16px] font-normal text-white"
                         disabled={processing || isCheckingEmail}
                     >
-                        {isCheckingEmail ? 'Vérification de l\'email...' : currentStep === 3 ? 'Terminer' : 'Suivant'}
+                        {isCheckingEmail ? "Vérification de l'email..." : currentStep === 3 ? 'Terminer' : 'Suivant'}
                     </button>
                 </form>
 
