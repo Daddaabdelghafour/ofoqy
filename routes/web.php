@@ -33,7 +33,7 @@ Route::get('/register', function () {
 
 Route::post('/register', function (Request $request, CreateNewStudent $action) {
     $student = $action->create($request->all());
-    return redirect('/login');
+    return response()->json(['success' => true]);
 });
 
 // Email check route for registration validation
