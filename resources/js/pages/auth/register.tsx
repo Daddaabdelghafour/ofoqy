@@ -151,7 +151,7 @@ export default function Register() {
                         reset('password', 'password_confirmation');
                         setTimeout(() => {
                             window.location.href = '/login';
-                        }, 3000);
+                        }, 8000);
                     },
                 });
             }
