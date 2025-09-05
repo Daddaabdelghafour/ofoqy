@@ -145,6 +145,7 @@ export default function Register() {
                 return;
             } else {
                 post('/register', {
+                    preserveScroll: true,
                     onFinish: () => reset('password', 'password_confirmation'),
                     onSuccess: () => {
                         setRegistrationSuccessful(true);
