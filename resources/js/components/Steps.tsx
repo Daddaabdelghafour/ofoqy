@@ -215,19 +215,20 @@ export default function Steps({
           <InputError message={errors.langue_bac} />
         </div>
         <div className="grid gap-2">
-          <label className='font-medium text-[16px] leading-100 text-[#5B5B5B]'>Moyenne générale Bac<span className='text-red-600'>*</span></label>
-          <input
-            type="text"
-            className='h-[54px] border-[1px] border-[#19191962] rounded-[3px] p-4 text-[14px] mb-3'
-            placeholder='10.00'
-            value={data.moyenne_general_bac}
-            onChange={e => setData('moyenne_general_bac', e.target.value)}
-            disabled={processing}
-          />
-          {errors.moyenne_general_bac && (
-            <p className="text-red-600">{errors.moyenne_general_bac}</p>
-          )}
-        </div>
+  <label className='font-medium text-[16px] leading-100 text-[#5B5B5B]'>Moyenne générale Bac<span className='text-red-600'>*</span></label>
+  <input
+    type="number"
+    className='h-[54px] border-[1px] border-[#19191962] rounded-[3px] p-4 text-[14px] mb-3'
+    placeholder='10.00'
+    value={data.moyenne_general_bac}
+    onChange={e => setData('moyenne_general_bac', e.target.value)}
+    disabled={processing}
+    min="0"
+    max="20"
+    step="0.01"
+  />
+  <InputError message={errors.moyenne_general_bac} />
+</div>
       </div>
     </div>
   );
