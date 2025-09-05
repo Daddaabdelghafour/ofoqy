@@ -160,8 +160,8 @@ export default function Register() {
 
     return (
         <div className="flex min-h-screen w-full flex-col p-8">
-            <div className="absolute right-[50px] top-0">
-                {registrationSuccessful && (
+             {registrationSuccessful && (
+                <div className="fixed inset-x-0 top-4 z-50 mx-auto w-full max-w-md px-4">
                     <Notification
                         notification={{
                             show: true,
@@ -170,8 +170,8 @@ export default function Register() {
                             message: 'Inscription réussie ! Vous allez être redirigé vers la page de connexion.',
                         }}
                     />
-                )}
-            </div>
+                </div>
+            )}
             <div className="flex flex-wrap items-center justify-between lg:flex-nowrap">
                 <a href="/">
                     <ArrowLeft className="border-2.25 h-[20px] w-[20px] text-black" />
