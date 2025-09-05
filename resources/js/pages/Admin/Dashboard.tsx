@@ -176,6 +176,7 @@ const handleDelete = async (id: number) => {
     +  Ajouter une université
 </button>
                         </div>
+                        <div className="overflow-x-auto overflow-y-auto max-h-[70vh]">
                         <table className="min-w-full border border-gray-200">
                                 <thead>
                                     <tr className="bg-gray-100 text-gray-700 px-2 ">
@@ -210,6 +211,7 @@ const handleDelete = async (id: number) => {
                                     ))}
                                 </tbody>
                         </table>
+                    </div>
                     </div>
                </div>
             </DashboardLayout>
