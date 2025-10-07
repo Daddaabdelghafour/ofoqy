@@ -103,8 +103,19 @@ Utilisation de **Laravel Sail** pour un déploiement rapide et fiable sur EC2, a
                        │  (IA Services)│
                        └───────────────┘
 ```
+<img width="1280" height="588" alt="image" src="https://github.com/user-attachments/assets/796f63e8-ab3d-4f8d-8516-6d5218fb1948" />
+<img width="1280" height="630" alt="image" src="https://github.com/user-attachments/assets/d78e0471-33cf-4962-b49d-00523acd4384" />
+<img width="1280" height="739" alt="image" src="https://github.com/user-attachments/assets/84a95a2f-d6c4-47fb-b92a-d81e3ccf325a" />
+![IMG-20251007-WA0009 1](https://github.com/user-attachments/assets/056d6667-709a-4686-b73c-0e9138a6a737)
+
+
 
 ---
+
+
+
+
+
 
 ## 🤝 Équipe
 
