@@ -117,7 +117,7 @@ Utilisation de **Laravel Sail** pour un déploiement rapide et fiable sur EC2, a
 
 
 
-## 🤝 Équipe
+##  Équipe
 
 **Développement:** Fadoua Chemradkhi et Abdelghafour Dadda 
 
@@ -135,7 +135,4 @@ Utilisation de **Laravel Sail** pour un déploiement rapide et fiable sur EC2, a
 
 ---
 
-<div align="center">
-  <p><strong>Fait avec ❤️ pour l'éducation au Maroc</strong></p>
-  <p>⭐ Star le projet si vous l'appréciez !</p>
-</div>
+
